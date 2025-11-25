@@ -32,11 +32,11 @@ const CompactDrive = () => {
 
   // Gallery images
   const galleryImages = [
-    "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=600&fit=crop",
+    "/galerie1.jpg",
+    "/galerie2.jpg",
+    "/galerie3.jpg",
+    "/galerie4.jpg",
+    "/galerie5.jpg",
   ];
 
   const enrollmentSteps = [
@@ -86,9 +86,9 @@ const CompactDrive = () => {
 
   const categories = [
     {
-      title: "AUTO",
+      title: "MOTO",
       subtitle: "pentru permis de conducere categoria",
-      code: "B",
+      code: "A1, A2, A",
       price: "2107",
       vat: "2550 cu TVA",
       vehicles: [
@@ -99,9 +99,9 @@ const CompactDrive = () => {
       color: "bg-gradient-to-br from-gray-900 to-gray-800"
     },
     {
-      title: "CAMION",
+      title: "AUTO",
       subtitle: "pentru permis de conducere categoria",
-      code: "C",
+      code: "B",
       price: "2636",
       vat: "3190 cu TVA",
       vehicles: [
@@ -112,9 +112,9 @@ const CompactDrive = () => {
       color: "bg-gradient-to-br from-red-600 to-red-700"
     },
     {
-      title: "CAMION + REMORCĂ",
+      title: "CAMION",
       subtitle: "pentru permis de conducere categoria",
-      code: "CE , C+CE",
+      code: "C, CE, C+CE",
       price: "1850",
       vat: "2250 cu TVA",
       vehicles: [
@@ -162,11 +162,9 @@ const CompactDrive = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             {/* Logo Space - Replace with actual logo */}
-            <img 
-            src="/logo.jpg" 
-            alt="Compact Drive" 
-            className="w-16 h-16 rounded-full object-cover"
-            />
+            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+              <span className="text-red-600 font-bold text-2xl">CD</span>
+            </div>
             
             <div className="flex items-center space-x-2">
               <div className="text-2xl font-bold">
@@ -251,12 +249,12 @@ const CompactDrive = () => {
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <img 
-                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop" 
+                src="/hero-image.jpg" 
                 alt="Școală de șoferi Compact Drive"
                 className="rounded-lg shadow-2xl w-full"
               />
               <div className="mt-6 bg-gray-900 rounded-lg p-6">
-                <div className="text-4xl font-bold text-center text-red-600">5+</div>
+                <div className="text-4xl font-bold text-center text-red-600">15+</div>
                 <div className="text-center text-gray-300 mt-2">ANI DE EXPERIENȚĂ</div>
               </div>
             </div>
@@ -408,10 +406,10 @@ const CompactDrive = () => {
                   <div className="text-center mb-6">
                     <img 
                       src={index === 0 
-                        ? "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop"
+                        ? "/moto.jpg"
                         : index === 1
-                        ? "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&h=200&fit=crop"
-                        : "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=300&h=200&fit=crop"
+                        ? "/camion.jpg"
+                        : "/camion-remorca.jpg"
                       }
                       alt={category.title}
                       className="w-full h-48 object-cover rounded-lg mb-6"
@@ -627,7 +625,7 @@ const CompactDrive = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={20} className="text-red-600" />
-                <span>+40 768 211 211</span>
+                <span>+40 770 935 065</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-red-600" />
