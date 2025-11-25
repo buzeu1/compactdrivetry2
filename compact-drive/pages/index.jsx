@@ -163,7 +163,7 @@ const CompactDrive = () => {
           <div className="flex items-center space-x-4">
             {/* Logo Space - Replace with actual logo */}
          <img 
-            src="/logo.png" 
+            src="/logo.jpg" 
             alt="Compact Drive" 
             className="w-17 h-17 rounded-full object-cover"
         />
