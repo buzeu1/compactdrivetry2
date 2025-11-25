@@ -66,7 +66,7 @@ const DespreNoi = () => {
             <img 
                 src="/logo.jpg" 
                 alt="Compact Drive" 
-                className="w-16 h-16 object-contain"
+                className="w-16 h-16 rounded-full object-cover"
             />
             
             <div className="flex items-center space-x-2">
@@ -415,5 +415,6 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
 
