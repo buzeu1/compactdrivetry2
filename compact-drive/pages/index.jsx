@@ -162,11 +162,11 @@ const CompactDrive = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             {/* Logo Space - Replace with actual logo */}
-           <img 
-              src="/logo.jpg" 
-              alt="Compact Drive" 
-              className="w-16 h-16 object-contain"
-            />
+         <img 
+            src="/logo.png" 
+            alt="Compact Drive" 
+            className="w-17 h-17 rounded-full object-cover"
+        />
             
             <div className="flex items-center space-x-2">
               <div className="text-2xl font-bold">
