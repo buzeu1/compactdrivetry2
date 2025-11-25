@@ -165,7 +165,7 @@ const CompactDrive = () => {
          <img 
             src="/logo.jpg" 
             alt="Compact Drive" 
-            className="w-17 h-17 rounded-full object-cover"
+            className="w-16 h-16 rounded-full object-cover"
         />
             
             <div className="flex items-center space-x-2">
