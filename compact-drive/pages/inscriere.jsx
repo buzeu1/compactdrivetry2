@@ -94,7 +94,7 @@ const Inscriere = () => {
       icon: <Phone size={32} />,
       title: "Telefon",
       content: [
-        "+40 770 935 065"
+        "+40 768 211 211"
       ]
     },
     {
