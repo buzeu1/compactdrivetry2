@@ -1,0 +1,764 @@
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Star, Phone, Mail, MapPin, Clock, CheckCircle, Menu, X, Book } from 'lucide-react';
+
+const CompactDrive = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [visibleSections, setVisibleSections] = useState({});
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.dataset.section]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-section]').forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Gallery images
+  const galleryImages = [
+    "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=600&fit=crop",
+  ];
+
+  const enrollmentSteps = [
+    {
+      number: "01",
+      title: "Te înscrii",
+      description: "Ne vizitezi la unul din sediile școlii de șoferi și completezi fișa de înscriere, după care continui cu obținerea documentelor necesare",
+      icon: <Book size={64} />,
+      color: "from-gray-900 to-gray-800"
+    },
+    {
+      number: "02",
+      title: "Începi cursurile",
+      description: "După completarea dosarului vei începe cursurile teoretice și practice, finalizate cu o simulare de examen",
+      icon: <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.52 0 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>,
+      color: "from-red-600 to-red-700"
+    },
+    {
+      number: "03",
+      title: "Susții examenul",
+      description: "Parcurgi toate etapele pentru completarea examenelor și te programezi pentru examenul de legislație și cel de conducere",
+      icon: <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>,
+      color: "from-gray-800 to-gray-700"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Maria Ionescu",
+      category: "Elev Categoria B",
+      text: "Instructori profesioniști și răbdători! Am luat permisul din prima încercare datorită pregătirii excelente. Mașinile sunt noi și foarte bine întreținute. Recomand cu încredere!",
+      rating: 5
+    },
+    {
+      name: "Andrei Popescu",
+      category: "Elev Categoria A",
+      text: "Cea mai bună școală de șoferi din Roman! Instructorii sunt dedicați, programul este flexibil și atmosfera este prietenoasă. M-am simțit în siguranță de la prima lecție.",
+      rating: 5
+    },
+    {
+      name: "Elena Dobre",
+      category: "Elev Categoria B",
+      text: "Mulțumesc echipei Compact Drive pentru profesionalism și răbdare! Am depășit frica de condus și acum mă simt încrezătoare la volan. Vă recomand cu drag!",
+      rating: 5
+    }
+  ];
+
+  const categories = [
+    {
+      title: "MOTO",
+      subtitle: "pentru permis de conducere categoria",
+      code: "A1, A2, A",
+      price: "2107",
+      vat: "2550 cu TVA",
+      vehicles: [
+        "A1 - Honda CB 125F 2023",
+        "A2 - Honda CI 500 2025",
+        "A - Yamaha MT-07 2020"
+      ],
+      color: "bg-gradient-to-br from-gray-900 to-gray-800"
+    },
+    {
+      title: "AUTO",
+      subtitle: "pentru permis de conducere categoria",
+      code: "B",
+      price: "2636",
+      vat: "3190 cu TVA",
+      vehicles: [
+        "Mercedes CLA 2025",
+        "VW POLO 2023",
+        "Toyota Yaris Hibryd 2020"
+      ],
+      color: "bg-gradient-to-br from-red-600 to-red-700"
+    },
+    {
+      title: "CAMION",
+      subtitle: "pentru permis de conducere categoria",
+      code: "C, CE, C+CE",
+      price: "1850",
+      vat: "2250 cu TVA",
+      vehicles: [
+        "MAN TGM 2020",
+        "Remorca camion 10T"
+      ],
+      color: "bg-gradient-to-br from-gray-800 to-gray-700"
+    }
+  ];
+
+  const stats = [
+    { value: "96%", label: "Promovabilitate legislație" },
+    { value: "78%", label: "Promovabilitate traseu" },
+    { value: "99%", label: "Promovabilitate preselectie" },
+    { value: "97%", label: "Pregătire instructori auto" }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            {/* Logo Space - Replace with actual logo */}
+            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+              <span className="text-red-600 font-bold text-xl">CD</span>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <div className="text-2xl font-bold">
+                <span className="text-red-600">COMPACT</span>
+                <span className="ml-1">DRIVE</span>
+              </div>
+              <div className="text-xs text-gray-400 hidden sm:block">ȘCOALA DE ȘOFERI</div>
+            </div>
+          </div>
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="/" className="hover:text-red-500 transition">Acasă</a>
+            <a href="/#categorii" className="hover:text-red-500 transition">Categorii permise</a>
+            <a href="/autovehicule" className="hover:text-red-500 transition">Tarife</a>
+            <a href="/promotii" className="hover:text-red-500 transition">Promoții</a>
+            <a href="/informatii-utile" className="hover:text-red-500 transition">Info utile</a>
+            <a href="/inscriere" className="hover:text-red-500 transition">Înscriere</a>
+            <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
+          </div>
+
+          <a href="/inscriere" className="hidden md:block bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold transition">
+            Înscriere Rapidă
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 space-y-3">
+            <a href="/" className="block hover:text-red-500 transition">Acasă</a>
+            <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
+            <a href="/autovehicule" className="block hover:text-red-500 transition">Tarife</a>
+            <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
+            <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
+            <a href="/inscriere" className="block hover:text-red-500 transition">Înscriere</a>
+            <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
+            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
+              Înscriere Rapidă
+            </a>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section id="acasa" className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-24 pb-16 px-6 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\\"60\\" height=\\"60\\" viewBox=\\"0 0 60 60\\" xmlns=\\"http://www.w3.org/2000/svg\\"%3E%3Cg fill=\\"none\\" fill-rule=\\"evenodd\\"%3E%3Cg fill=\\"%23ffffff\\" fill-opacity=\\"1\\"%3E%3Cpath d=\\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
+          }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div 
+            data-section="hero-left"
+            className={`space-y-6 transition-all duration-1000 ${
+              visibleSections['hero-left'] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Visezi să conduci?<br />
+              <span className="text-red-600">IA-ȚI PERMISUL!</span>
+            </h1>
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Instructorii noștri sunt pregătiți să transforme necesitatea ta de a fi conducător auto în plăcerea de a conduce, indiferent de categoria de permis pe care o alegi. Succes!
+            </p>
+            <a href="/#categorii" className="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 inline-flex items-center space-x-2">
+              <span>Vezi categoriile</span>
+              <ChevronRight size={20} />
+            </a>
+          </div>
+
+          <div 
+            data-section="hero-right"
+            className={`relative transition-all duration-1000 delay-300 ${
+              visibleSections['hero-right'] ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+            }`}
+          >
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <img 
+                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop" 
+                alt="Școală de șoferi Compact Drive"
+                className="rounded-lg shadow-2xl w-full"
+              />
+              <div className="mt-6 bg-gray-900 rounded-lg p-6">
+                <div className="text-4xl font-bold text-center text-red-600">15+</div>
+                <div className="text-center text-gray-300 mt-2">ANI DE EXPERIENȚĂ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            data-section="gallery-header"
+            className={`text-center mb-12 transition-all duration-1000 ${
+              visibleSections['gallery-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <h2 className="text-red-600 text-sm font-semibold tracking-wider uppercase mb-2">
+              ULTIMELE REZULTATE
+            </h2>
+            <h3 className="text-4xl font-bold text-gray-900">
+              Elevii noștri promovați recent
+            </h3>
+          </div>
+
+          <div 
+            data-section="gallery-content"
+            className={`relative group transition-all duration-1000 ${
+              visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={galleryImages[currentImageIndex]} 
+                alt="Elevi promovați"
+                className="w-full h-[500px] object-cover transition-transform duration-700"
+              />
+            </div>
+
+            <button 
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+            >
+              <ChevronLeft size={24} className="text-gray-900" />
+            </button>
+
+            <button 
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+            >
+              <ChevronRight size={24} className="text-gray-900" />
+            </button>
+
+            <div className="flex justify-center mt-6 space-x-2">
+              {galleryImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition ${
+                    index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enrollment Steps Section */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            data-section="enrollment-header"
+            className={`text-center mb-12 transition-all duration-1000 ${
+              visibleSections['enrollment-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <h2 className="text-red-600 text-sm font-semibold tracking-wider uppercase mb-2">
+              PAȘII PE CARE ÎI PARCURGI LA
+            </h2>
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">
+              Școala de Șoferi Compact Drive
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Informații complete despre procesul de înscriere și obținere a permisului de conducere
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {enrollmentSteps.map((step, index) => (
+              <div
+                key={index}
+                data-section={`enrollment-step-${index}`}
+                className={`relative transition-all duration-1000 delay-${index * 100} ${
+                  visibleSections[`enrollment-step-${index}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+              >
+                <div className={`bg-gradient-to-br ${step.color} text-white rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2`}>
+                  <div className="absolute -top-6 left-8 bg-white text-gray-900 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg">
+                    {step.number}
+                  </div>
+                  <div className="mt-12">
+                    <div className="mb-6 flex justify-center opacity-90">
+                      {step.icon}
+                    </div>
+                    <h4 className="text-3xl font-bold mb-4 text-center">{step.title}</h4>
+                    <p className="text-gray-100 leading-relaxed text-center text-lg">{step.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="/informatii-utile" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center space-x-2">
+              <span>Află toate detaliile</span>
+              <ChevronRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories Overview - 3 Simple Cards */}
+      <section id="categorii" className="py-16 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            data-section="categories-header"
+            className={`text-center mb-12 transition-all duration-1000 ${
+              visibleSections['categories-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <h2 className="text-red-600 text-sm font-semibold tracking-wider uppercase mb-2">
+              COSTURI GENERALE PENTRU
+            </h2>
+            <h3 className="text-4xl font-bold text-gray-900">
+              Școala de șoferi
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {categories.map((category, index) => (
+              <div 
+                key={index}
+                data-section={`category-${index}`}
+                className={`bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 duration-1000 ${
+                  visibleSections[`category-${index}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+              >
+                <div className="p-8">
+                  <div className="text-center mb-6">
+                    <img 
+                      src={index === 0 
+                        ? "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop"
+                        : index === 1
+                        ? "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&h=200&fit=crop"
+                        : "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=300&h=200&fit=crop"
+                      }
+                      alt={category.title}
+                      className="w-full h-48 object-cover rounded-lg mb-6"
+                    />
+                    <h4 className="text-3xl font-bold text-gray-900 mb-2">{category.title}</h4>
+                    <p className="text-gray-600 text-sm mb-1">{category.subtitle}</p>
+                    <p className="text-gray-800 font-semibold">{category.code}</p>
+                  </div>
+
+                  <div className="text-center mb-6">
+                    <div className="text-4xl font-bold text-red-600">
+                      de la {category.price}
+                      <span className="text-sm text-gray-500 block mt-1">{category.vat}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-6">
+                    {category.vehicles.map((vehicle, vIndex) => (
+                      <div key={vIndex} className="flex items-start space-x-2">
+                        <CheckCircle size={20} className="text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{vehicle}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a href="/autovehicule" className={`w-full ${category.color} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition block text-center`}>
+                    Mergi la categoria {category.title}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+            <a href="/autovehicule" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+              <span>Vezi toate autovehiculele</span>
+              <ChevronRight size={20} />
+            </a>
+            <a href="/autovehicule#servicii" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+              <span>Vezi servicii suplimentare</span>
+              <ChevronRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-6 bg-gradient-to-br from-red-600 to-red-700 text-white">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            data-section="stats-header"
+            className={`text-center mb-12 transition-all duration-1000 ${
+              visibleSections['stats-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <h2 className="text-sm font-semibold tracking-wider uppercase mb-2 opacity-90">
+              NE MÂNDRIM CU
+            </h2>
+            <h3 className="text-4xl font-bold">
+              Performanțele școlii de șoferi Compact Drive
+            </h3>
+            <p className="mt-4 text-xl text-red-100">
+              Munca și devotamentul nostru au început să dea roade încă din primii ani de activitate,
+              iar acum ne bucurăm de fiecare realizare a elevilor și instructorilor noștri.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <div 
+                key={index}
+                data-section={`stat-${index}`}
+                className={`${index % 2 === 0 ? 'bg-gray-900' : 'bg-white text-gray-900'} rounded-2xl p-8 text-center shadow-xl transition-all duration-1000 delay-${index * 100} ${
+                  visibleSections[`stat-${index}`] ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+              >
+                <div className="text-5xl font-bold mb-3">{stat.value}</div>
+                <div className={`${index % 2 === 0 ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            data-section="testimonials-header"
+            className={`text-center mb-12 transition-all duration-1000 ${
+              visibleSections['testimonials-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <h2 className="text-red-600 text-sm font-semibold tracking-wider uppercase mb-2">
+              IATĂ CE SPUN ELEVII DESPRE
+            </h2>
+            <h3 className="text-4xl font-bold text-gray-900">
+              Școala de șoferi COMPACT DRIVE
+            </h3>
+          </div>
+
+          <div 
+            data-section="testimonials-content"
+            className={`max-w-4xl mx-auto relative transition-all duration-1000 ${
+              visibleSections['testimonials-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-xl">
+              <div className="flex justify-center mb-6">
+                {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                  <Star key={i} className="text-yellow-400 fill-current" size={24} />
+                ))}
+              </div>
+
+              <p className="text-gray-700 text-lg leading-relaxed text-center mb-8 italic">
+                "{testimonials[currentTestimonial].text}"
+              </p>
+
+              <div className="flex items-center justify-center space-x-4">
+                <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                  {testimonials[currentTestimonial].name.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">{testimonials[currentTestimonial].name}</div>
+                  <div className="text-gray-600 text-sm">{testimonials[currentTestimonial].category}</div>
+                </div>
+              </div>
+            </div>
+
+            <button 
+              onClick={prevTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-gray-100 p-3 rounded-full shadow-lg transition"
+            >
+              <ChevronLeft size={24} className="text-gray-900" />
+            </button>
+
+            <button 
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-gray-100 p-3 rounded-full shadow-lg transition"
+            >
+              <ChevronRight size={24} className="text-gray-900" />
+            </button>
+
+            <div className="flex justify-center mt-8 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition ${
+                    index === currentTestimonial ? 'bg-red-600 w-8' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div 
+            data-section="testimonials-buttons"
+            className={`mt-12 flex flex-col sm:flex-row justify-center gap-4 transition-all duration-1000 delay-300 ${
+              visibleSections['testimonials-buttons'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2">
+              <span>Lasă o recenzie pe GOOGLE</span>
+            </button>
+            <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2">
+              <span>Lasă o recenzie pe FACEBOOK</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact/Footer Section */}
+      <footer id="contact" className="bg-black text-white py-16 px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div className="text-3xl font-bold mb-4">
+              <span className="text-red-600">COMPACT</span> DRIVE
+            </div>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Promovăm respectul reciproc în trafic și conduita corectă la volan.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="bg-red-600 hover:bg-red-700 p-2 rounded transition">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <a href="#" className="bg-red-600 hover:bg-red-700 p-2 rounded transition">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+              <a href="#" className="bg-red-600 hover:bg-red-700 p-2 rounded transition">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xl font-bold mb-6">Contact</h4>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin size={20} className="text-red-600 flex-shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold">Pietonal Ștefan cel Mare, Roman 611038</div>
+                  <div className="text-gray-400 text-sm">Sediul principal</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone size={20} className="text-red-600" />
+                <span>+40 770 935 065</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail size={20} className="text-red-600" />
+                <span>contact@compact-drive.ro</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Clock size={20} className="text-red-600" />
+                <span>08:30 AM - 18:30 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xl font-bold mb-6">Link-uri rapide</h4>
+            <div className="space-y-3">
+              <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
+              <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
+              <a href="/autovehicule" className="block text-gray-400 hover:text-white transition">Tarife</a>
+              <a href="/promotii" className="block text-gray-400 hover:text-white transition">Promoții</a>
+              <a href="/informatii-utile" className="block text-gray-400 hover:text-white transition">Info utile</a>
+              <a href="/inscriere" className="block text-gray-400 hover:text-white transition">Înscriere</a>
+              <a href="/#contact" className="block text-gray-400 hover:text-white transition">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xl font-bold mb-6">Localizare</h4>
+            <div className="bg-gray-900 rounded-lg p-4 h-48 flex items-center justify-center">
+              <MapPin size={48} className="text-red-600" />
+            </div>
+            <button className="mt-4 w-full bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-semibold transition">
+              Afișați harta
+            </button>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+          <p>&copy; 2024 Compact Drive. Toate drepturile rezervate.</p>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 1s ease-out;
+        }
+
+        .delay-100 {
+          transition-delay: 100ms;
+        }
+
+        .delay-200 {
+          transition-delay: 200ms;
+        }
+
+        .delay-300 {
+          transition-delay: 300ms;
+        }
+
+        .delay-400 {
+          transition-delay: 400ms;
+        }
+
+        .delay-500 {
+          transition-delay: 500ms;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #111827;
+          border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #dc2626;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default CompactDrive;
