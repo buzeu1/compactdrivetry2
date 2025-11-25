@@ -408,8 +408,8 @@ const CompactDrive = () => {
                       src={index === 0 
                         ? "/moto.jpg"
                         : index === 1
-                        ? "/auto.jpg"
-                        : "/camion.jpg"
+                        ? "/camion.jpg"
+                        : "/camion-remorca.jpg"
                       }
                       alt={category.title}
                       className="w-full h-48 object-cover rounded-lg mb-6"
