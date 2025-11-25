@@ -113,11 +113,9 @@ const Inscriere = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-4">
             {/* Logo Space */}
-            <img 
-            src="/logo.jpg" 
-            alt="Compact Drive" 
-            className="w-12 h-12 object-contain"
-            />
+            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+              <span className="text-red-600 font-bold text-2xl">CD</span>
+            </div>
             
             <div className="flex items-center space-x-2">
               <div className="text-2xl font-bold">
@@ -130,11 +128,11 @@ const Inscriere = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             <a href="/" className="hover:text-red-500 transition">Acasă</a>
+            <a href="/despre-noi" className="hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" className="hover:text-red-500 transition">Categorii permise</a>
             <a href="/autovehicule" className="hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" className="hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="hover:text-red-500 transition">Info utile</a>
-            <a href="/inscriere" className="text-red-500">Înscriere</a>
             <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
@@ -150,11 +148,11 @@ const Inscriere = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
             <a href="/" className="block hover:text-red-500 transition">Acasă</a>
+            <a href="/despre-noi" className="block hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
             <a href="/autovehicule" className="block hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
-            <a href="/inscriere" className="block text-red-500">Înscriere</a>
             <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
           </div>
         )}
