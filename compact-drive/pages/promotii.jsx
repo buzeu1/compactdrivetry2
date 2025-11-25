@@ -1,36 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || 'YOUR_SUPABASE_URL';
-const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Promotii = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [promotions, setPromotions] = useState([]);
-
-  useEffect(() => {
-    const fetchPromotions = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('promotions')
-          .select('*')
-          .eq('active', true)
-          .order('created_at', { ascending: false });
-
-        if (!error && data) {
-          setPromotions(data);
-        }
-      } catch (err) {
-        console.log('Supabase not configured yet');
-      }
-    };
-
-    if (supabaseUrl !== 'YOUR_SUPABASE_URL') {
-      fetchPromotions();
-    }
-  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -79,7 +51,7 @@ const Promotii = () => {
             <a href="/promotii" className="block text-red-500">Promoții</a>
             <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
-            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
+            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center mt-4">
               Înscriere Rapidă
             </a>
           </div>
@@ -100,55 +72,23 @@ const Promotii = () => {
           </div>
         </div>
 
-        {/* Promotions Space - Connected to Supabase */}
+        {/* Promotions Space */}
         <div className="max-w-7xl mx-auto px-6 mb-16">
-          <div className="min-h-[400px] bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            {promotions.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {promotions.map((promo) => (
-                  <div key={promo.id} className="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-2xl transition">
-                    {promo.image_url && (
-                      <img src={promo.image_url} alt={promo.title} className="w-full h-48 object-cover rounded-lg mb-4" />
-                    )}
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{promo.title}</h3>
-                    {promo.description && (
-                      <p className="text-gray-600 mb-4">{promo.description}</p>
-                    )}
-                    {promo.discount_percentage && (
-                      <div className="bg-red-600 text-white inline-block px-4 py-2 rounded-full font-bold mb-4">
-                        -{promo.discount_percentage}%
-                      </div>
-                    )}
-                    {promo.old_price && promo.new_price && (
-                      <div className="mb-4">
-                        <span className="text-gray-400 line-through mr-2">{promo.old_price} RON</span>
-                        <span className="text-red-600 font-bold text-2xl">{promo.new_price} RON</span>
-                      </div>
-                    )}
-                    <a 
-                      href="/inscriere"
-                      className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition"
-                    >
-                      Profită acum
-                    </a>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-20">
-                <div className="text-gray-400 mb-4">
-                  <svg className="mx-auto h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Promoții în curând
-                </h3>
-                <p className="text-gray-600 text-lg">
-                  Spațiu pentru promoții conectat la Supabase
-                </p>
-              </div>
-            )}
+          <div className="min-h-[400px] bg-white rounded-2xl shadow-xl p-8 md:p-12 flex items-center justify-center">
+            <div className="text-center">
+              <svg className="mx-auto h-24 w-24 text-gray-300 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                Promoții în curând
+              </h3>
+              <p className="text-gray-600 text-lg mb-2">
+                Spațiu pentru promoții conectat la Supabase
+              </p>
+              <p className="text-gray-500 text-sm">
+                Aici vor apărea ofertele speciale când vor fi adăugate în baza de date
+              </p>
+            </div>
           </div>
         </div>
 
@@ -170,7 +110,7 @@ const Promotii = () => {
                 <ChevronRight size={20} />
               </a>
               <a 
-                href="/autovehicule#servicii"
+                href="/autovehicule"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 inline-flex items-center justify-center space-x-2"
               >
                 <span>Vezi servicii suplimentare</span>
@@ -199,8 +139,8 @@ const Promotii = () => {
               <div className="flex items-start space-x-3">
                 <MapPin size={20} className="text-red-600 flex-shrink-0 mt-1" />
                 <div>
-                  <div className="font-semibold">Pietonal Ștefan cel Mare, Roman 611038</div>
-                  <div className="text-gray-400 text-sm">Sediul principal</div>
+                  <div className="font-semibold">Pietonal Ștefan cel Mare</div>
+                  <div className="text-gray-400 text-sm">Roman 611038</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -213,7 +153,7 @@ const Promotii = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Clock size={20} className="text-red-600" />
-                <span>08:30 AM - 18:30 PM</span>
+                <span>L-V: 08:30 - 18:30</span>
               </div>
             </div>
           </div>
@@ -223,11 +163,10 @@ const Promotii = () => {
             <div className="space-y-3">
               <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
               <a href="/despre-noi" className="block text-gray-400 hover:text-white transition">Despre Noi</a>
-              <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
+              <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii</a>
               <a href="/autovehicule" className="block text-gray-400 hover:text-white transition">Tarife</a>
               <a href="/promotii" className="block text-red-500">Promoții</a>
               <a href="/informatii-utile" className="block text-gray-400 hover:text-white transition">Info utile</a>
-              <a href="/#contact" className="block text-gray-400 hover:text-white transition">Contact</a>
             </div>
           </div>
 
