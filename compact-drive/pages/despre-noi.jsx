@@ -51,10 +51,10 @@ const DespreNoi = () => {
   ];
 
   const stats = [
-    { value: "15+", label: "Ani de Experiență" },
-    { value: "5000+", label: "Elevi Promovați" },
+    { value: "5+", label: "Ani de Experiență" },
+    { value: "500+", label: "Elevi Promovați" },
     { value: "96%", label: "Rată Promovabilitate" },
-    { value: "10+", label: "Instructori Profesioniști" }
+    { value: "5+", label: "Instructori Profesioniști" }
   ];
 
   return (
@@ -149,7 +149,7 @@ const DespreNoi = () => {
                 La Compact Drive, misiunea noastră este simplă dar profundă: să pregătim șoferi responsabili, competenți și încrezători care contribuie la siguranța rutieră din România.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                De peste 15 ani, dedicăm fiecare zi pentru a oferi cea mai bună experiență de învățare, combinând tehnici moderne de predare cu răbdarea și profesionalismul instructorilor noștri certificați.
+                De peste 5 ani, dedicăm fiecare zi pentru a oferi cea mai bună experiență de învățare, combinând tehnici moderne de predare cu răbdarea și profesionalismul instructorilor noștri certificați.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed">
                 Nu suntem doar o școală de șoferi - suntem partenerul tău de încredere în călătoria către independență și libertate pe drumurile României.
@@ -265,7 +265,7 @@ const DespreNoi = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               "Instructori certificați și cu experiență vastă",
-              "Mașini noi și bine întreținute (Mercedes, VW, Toyota)",
+              "Mașini noi și bine întreținute (BMW, Peugeot, Renault)",
               "Program flexibil adaptat nevoilor tale",
               "Rată de promovabilitate 96% la legislație",
               "Suport complet până la obținerea permisului",
@@ -302,7 +302,7 @@ const DespreNoi = () => {
             Pregătit să începi?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Alătură-te celor peste 5000 de elevi care au obținut permisul cu Compact Drive!
+            Alătură-te celor peste 500 de elevi care au obținut permisul cu Compact Drive!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 
@@ -446,3 +446,4 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
