@@ -176,9 +176,6 @@ const Inscriere = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Înscrie-te rapid și simplu!
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              * Pentru înscriere și plată cu cardul mergi aici și alege opțiunea de <strong>"PLATĂ CU CARDUL"</strong>
-            </p>
           </div>
         </div>
       </section>
@@ -262,7 +259,7 @@ const Inscriere = () => {
                           name="nume"
                           value={formData.nume}
                           onChange={handleChange}
-                          placeholder="care este numele tău de familie?"
+                          placeholder="numele de familie"
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                         />
@@ -277,7 +274,7 @@ const Inscriere = () => {
                           name="prenume"
                           value={formData.prenume}
                           onChange={handleChange}
-                          placeholder="care este prenumele tău?"
+                          placeholder="prenumele tău"
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                         />
@@ -294,7 +291,7 @@ const Inscriere = () => {
                           name="telefon"
                           value={formData.telefon}
                           onChange={handleChange}
-                          placeholder="0722 ne interesează (și pe telefon)"
+                          placeholder="nr tău de telefon)"
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                         />
@@ -309,7 +306,7 @@ const Inscriere = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="introdu adresa ta de email"
+                          placeholder="adresa ta de email"
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                         />
@@ -325,7 +322,7 @@ const Inscriere = () => {
                         name="adresa"
                         value={formData.adresa}
                         onChange={handleChange}
-                        placeholder="ne interesează adresa ta (și strada)"
+                        placeholder="adresa ta"
                         required
                         className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                       />
