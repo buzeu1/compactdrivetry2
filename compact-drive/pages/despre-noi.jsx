@@ -64,7 +64,7 @@ const DespreNoi = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-4">
             <img 
-                src="/logo.png" 
+                src="/logo.jpg" 
                 alt="Compact Drive" 
                 className="w-16 h-16 object-contain"
             />
@@ -415,4 +415,5 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
