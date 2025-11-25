@@ -86,9 +86,9 @@ const CompactDrive = () => {
 
   const categories = [
     {
-      title: "MOTO",
+      title: "AUTO",
       subtitle: "pentru permis de conducere categoria",
-      code: "A1, A2, A",
+      code: "B",
       price: "2107",
       vat: "2550 cu TVA",
       vehicles: [
@@ -99,9 +99,9 @@ const CompactDrive = () => {
       color: "bg-gradient-to-br from-gray-900 to-gray-800"
     },
     {
-      title: "AUTO",
+      title: "CAMION",
       subtitle: "pentru permis de conducere categoria",
-      code: "B",
+      code: "C",
       price: "2636",
       vat: "3190 cu TVA",
       vehicles: [
@@ -112,9 +112,9 @@ const CompactDrive = () => {
       color: "bg-gradient-to-br from-red-600 to-red-700"
     },
     {
-      title: "CAMION",
+      title: "CAMION + REMORCĂ",
       subtitle: "pentru permis de conducere categoria",
-      code: "C, CE, C+CE",
+      code: "CE , C+CE",
       price: "1850",
       vat: "2250 cu TVA",
       vehicles: [
@@ -256,7 +256,7 @@ const CompactDrive = () => {
                 className="rounded-lg shadow-2xl w-full"
               />
               <div className="mt-6 bg-gray-900 rounded-lg p-6">
-                <div className="text-4xl font-bold text-center text-red-600">15+</div>
+                <div className="text-4xl font-bold text-center text-red-600">5+</div>
                 <div className="text-center text-gray-300 mt-2">ANI DE EXPERIENȚĂ</div>
               </div>
             </div>
@@ -627,7 +627,7 @@ const CompactDrive = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={20} className="text-red-600" />
-                <span>+40 770 935 065</span>
+                <span>+40 768 211 211</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-red-600" />
