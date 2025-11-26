@@ -235,7 +235,7 @@ const CompactDrive = () => {
               <span className="text-red-600">IA-ȚI PERMISUL!</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
-              Școala de șoferi Compact Drive îți oferă cursuri de conducere de calitate superioară, cu instructori profesioniști și mașini moderne. Începe drumul către permisul tău astăzi!
+Școala de șoferi Compact Drive este recunoscută ca una dintre cele mai bune și mai apreciate școli de șoferi din municipiul Roman, unde seriozitatea și profesionalismul te pregătesc pentru succes.Începe drumul către permisul tău astăzi!
             </p>
             <a href="/#categorii" className="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 inline-flex items-center space-x-2">
               <span>Vezi categoriile</span>
