@@ -750,7 +750,7 @@ const CompactDrive = () => {
           background: #f1f1f1;
         }
 
-        ::-webkit-scrollbar-thumb {
+        ::-webkit-scrollbar-thumb {W
           background: #111827;
           border-radius: 5px;
         }
