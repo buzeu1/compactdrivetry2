@@ -141,25 +141,26 @@ const CompactDrive = () => {
       title: "AUTO",
       subtitle: "pentru permis de conducere categoria",
       code: "B",
-      price: "2107",
-      vat: "2550 cu TVA",
+      price: "2400",
+      vat: "(TVA inclus)",
       vehicles: [
-        "A1 - Honda CB 125F 2023",
-        "A2 - Honda CI 500 2025",
-        "A - Yamaha MT-07 2020"
+        "B - Peugeot 308 2016",
+        "B - Peugeot 308 2015",
+        "B - Renault Megane 2014",
+        "B - Renault Megane 2015",
+        "B - Bmw Seria 1 2017",
+        "B - Bmw X1 2014"
       ],
       color: "bg-gradient-to-br from-gray-900 to-gray-800"
     },
     {
       title: "CAMION",
       subtitle: "pentru permis de conducere categoria",
-      code: "B",
-      price: "2636",
-      vat: "3190 cu TVA",
+      code: "C",
+      price: "2600",
+      vat: "(TVA inclus)",
       vehicles: [
-        "Mercedes CLA 2025",
-        "VW POLO 2023",
-        "Toyota Yaris Hibryd 2020"
+        "MAN 2013"
       ],
       color: "bg-gradient-to-br from-red-600 to-red-700"
     },
@@ -167,10 +168,10 @@ const CompactDrive = () => {
       title: "CAMION + REMORCĂ",
       subtitle: "pentru permis de conducere categoria",
       code: "CE, C+CE",
-      price: "1850",
-      vat: "2250 cu TVA",
+      price: "2500",
+      vat: "(TVA inclus)",
       vehicles: [
-        "MAN TGM 2020",
+        "MAN 2013",
         "Remorca camion 10T"
       ],
       color: "bg-gradient-to-br from-gray-800 to-gray-700"
