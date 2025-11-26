@@ -68,19 +68,71 @@ const CompactDrive = () => {
       name: "Maria Ionescu",
       category: "Elev Categoria B",
       text: "Instructori profesioniști și răbdători! Am luat permisul din prima încercare datorită pregătirii excelente. Mașinile sunt noi și foarte bine întreținute. Recomand cu încredere!",
-      rating: 5
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=5"
     },
     {
       name: "Andrei Popescu",
       category: "Elev Categoria A",
       text: "Cea mai bună școală de șoferi din Roman! Instructorii sunt dedicați, programul este flexibil și atmosfera este prietenoasă. M-am simțit în siguranță de la prima lecție.",
-      rating: 5
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=12"
     },
     {
       name: "Elena Dobre",
       category: "Elev Categoria B",
       text: "Mulțumesc echipei Compact Drive pentru profesionalism și răbdare! Am depășit frica de condus și acum mă simt încrezătoare la volan. Vă recomand cu drag!",
-      rating: 5
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=9"
+    },
+    {
+      name: "Ion Munteanu",
+      category: "Elev Categoria C",
+      text: "Am obținut categoria C pentru camion și sunt foarte mulțumit de experiența la Compact Drive. Instructorii au multă experiență în transporturi și mi-au explicat totul foarte clar, de la manevră până la conducere defensivă. Recomand cu încredere!",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=33"
+    },
+    {
+      name: "Gheorghe Stanciu",
+      category: "Elev Categoria CE",
+      text: "Pregătirea pentru categoria CE a fost excelentă! Am învățat să manevrezi remorca cu mare atenție și să fac cuplarea corect. Instructorii sunt foarte răbdători și profesioniști. Am promovat din prima!",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=15"
+    },
+    {
+      name: "Mihai Vasile",
+      category: "Elev Categoria C",
+      text: "Instructorii de la Compact Drive m-au pregătit foarte bine pentru categoria C. Am învățat toate aspectele condusului defensiv și de siguranță pentru transportul de mărfuri. Mașinile sunt moderne și bine întreținute.",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=52"
+    },
+    {
+      name: "Alexandra Radu",
+      category: "Elev Categoria B",
+      text: "Experiență minunată! De la primul curs teoretic până la ultimul curs practic, totul a fost organizat perfect. Instructorii sunt foarte dedicați și îți oferă încrederea de care ai nevoie la volan.",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=20"
+    },
+    {
+      name: "Constantin Pavel",
+      category: "Elev Categoria CE",
+      text: "Am făcut categoria CE aici și pot spune că are cei mai buni instructori pentru transport greu din Roman. M-au învățat tot ce trebuie să știu despre siguranța rutieră cu remorcă și cum să planific traseele eficient.",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=56"
+    },
+    {
+      name: "Cristina Nicolescu",
+      category: "Elev Categoria B",
+      text: "Compact Drive m-a ajutat să-mi depășesc teama de condus. Instructorii sunt foarte profesioniști și empatici. Programul este flexibil și se adaptează nevoilor tale. Mulțumesc pentru tot!",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=31"
+    },
+    {
+      name: "Daniel Marin",
+      category: "Elev Categoria C",
+      text: "Pregătirea pentru categoria C a fost foarte completă. Am învățat nu doar să conduc camionul, ci și aspecte importante despre întreținere și verificări zilnice. Instructorii sunt foarte experimentați în domeniu.",
+      rating: 5,
+      avatar: "https://i.pravatar.cc/150?img=68"
     }
   ];
 
@@ -137,6 +189,13 @@ const CompactDrive = () => {
       setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
     }, 4000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const testimonialTimer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(testimonialTimer);
   }, []);
 
   const nextImage = () => {
@@ -516,21 +575,23 @@ const CompactDrive = () => {
               visibleSections['testimonials-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
             }`}
           >
-            <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-xl">
+            <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-xl transition-all duration-500">
               <div className="flex justify-center mb-6">
                 {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
                   <Star key={i} className="text-yellow-400 fill-current" size={24} />
                 ))}
               </div>
 
-              <p className="text-gray-700 text-lg leading-relaxed text-center mb-8 italic">
+              <p className="text-gray-700 text-lg leading-relaxed text-center mb-8 italic min-h-[120px] flex items-center justify-center">
                 "{testimonials[currentTestimonial].text}"
               </p>
 
               <div className="flex items-center justify-center space-x-4">
-                <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                  {testimonials[currentTestimonial].name.charAt(0)}
-                </div>
+                <img 
+                  src={testimonials[currentTestimonial].avatar}
+                  alt={testimonials[currentTestimonial].name}
+                  className="w-16 h-16 rounded-full object-cover shadow-lg"
+                />
                 <div>
                   <div className="font-bold text-gray-900">{testimonials[currentTestimonial].name}</div>
                   <div className="text-gray-600 text-sm">{testimonials[currentTestimonial].category}</div>
@@ -557,11 +618,16 @@ const CompactDrive = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition ${
-                    index === currentTestimonial ? 'bg-red-600 w-8' : 'bg-gray-300'
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentTestimonial ? 'bg-red-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
                   }`}
+                  aria-label={`Recenzie ${index + 1}`}
                 />
               ))}
+            </div>
+            
+            <div className="text-center mt-4 text-gray-500 text-sm">
+              {currentTestimonial + 1} din {testimonials.length} recenzii
             </div>
           </div>
 
