@@ -46,7 +46,7 @@ const DespreNoi = () => {
     {
       icon: <Users size={48} />,
       title: "Comunitate",
-      description: "Peste 5000 de elevi promovați în ultimii 15 ani. Fă și tu parte din familia Compact Drive!"
+      description: "Peste 5000 de elevi promovați în ultimii 5 ani. Fă și tu parte din familia Compact Drive!"
     }
   ];
 
@@ -123,7 +123,7 @@ const DespreNoi = () => {
               Despre <span className="text-red-600">COMPACT DRIVE</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Școala de șoferi care transformă vise în realitate de peste 15 ani
+              Școala de șoferi care transformă vise în realitate de peste 5 ani
             </p>
           </div>
         </div>
@@ -446,4 +446,5 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
