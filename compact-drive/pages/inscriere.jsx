@@ -359,15 +359,6 @@ const Inscriere = () => {
                         ))}
                       </select>
                     </div>
-
-                    <div className="bg-gray-50 border-l-4 border-gray-900 p-4 rounded">
-                      <p className="text-sm text-gray-700">
-                        <strong className="text-gray-900">Notă:</strong> Sunt de acord cu{' '}
-                        <a href="#" className="text-red-600 underline">Termenii și Condițiile</a>{' '}
-                        de prelucrare ale datelor cu caracter personal.
-                      </p>
-                    </div>
-
                     <button
                       type="submit"
                       className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
