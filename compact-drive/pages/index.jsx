@@ -43,7 +43,7 @@ const CompactDrive = () => {
     {
       number: "01",
       title: "Te înscrii",
-      description: "Ne vizitezi la unul din sediile școlii de șoferi și completezi fișa de înscriere, după care continui cu obținerea documentelor necesare",
+      description: "Ne vizitezi la sediul școlii de șoferi, unde completezi fișa de înscriere, apoi urmezi pașii necesari pentru a obține toate documentele obligatorii.",
       icon: <Book size={64} />,
       color: "from-gray-900 to-gray-800"
     },
@@ -57,7 +57,7 @@ const CompactDrive = () => {
     {
       number: "03",
       title: "Susții examenul",
-      description: "Parcurgi toate etapele pentru completarea examenelor și te programezi pentru examenul de legislație și cel de conducere",
+      description: "După finalizarea etapelor necesare, îți vei programa examenul teoretic și cel practic în funcție de disponibilitatea și preferințele tale.",
       icon: <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>,
       color: "from-gray-800 to-gray-700"
     }
@@ -474,8 +474,7 @@ const CompactDrive = () => {
               Performanțele școlii de șoferi Compact Drive
             </h3>
             <p className="mt-4 text-xl text-red-100">
-              Munca și devotamentul nostru au început să dea roade încă din primii ani de activitate,
-              iar acum ne bucurăm de fiecare realizare a elevilor și instructorilor noștri.
+             Încă din primii ani, efortul și dedicarea noastră s-au reflectat în rezultatele obținute de elevi și instructori, iar fiecare succes ne motivează să fim tot mai buni.
             </p>
           </div>
 
@@ -678,7 +677,7 @@ const CompactDrive = () => {
         </div>
 
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; 2024 Compact Drive. Toate drepturile rezervate.</p>
+          <p>&copy; 2025 G.Y.A. COMPACT STAR SRL. Toate drepturile rezervate.</p>
         </div>
       </footer>
 
