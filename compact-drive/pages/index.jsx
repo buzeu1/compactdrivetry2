@@ -161,7 +161,6 @@ const CompactDrive = () => {
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            {/* Logo Space - Replace with actual logo */}
             <img 
             src="/logo.jpg" 
             alt="Compact Drive" 
@@ -177,7 +176,6 @@ const CompactDrive = () => {
             </div>
           </div>
           
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="/" className="hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="hover:text-red-500 transition">Despre Noi</a>
@@ -192,13 +190,11 @@ const CompactDrive = () => {
             Înscriere Rapidă
           </a>
 
-          {/* Mobile Menu Button */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
             <a href="/" className="block hover:text-red-500 transition">Acasă</a>
@@ -575,12 +571,22 @@ const CompactDrive = () => {
               visibleSections['testimonials-buttons'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2">
+            <a 
+              href="https://www.google.com/search?sca_esv=ef6e102d6c74609c&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-FsVYJ4ro_JHWWIFscg-xGQVPScETggdIZu9OopOQULTfKZGEGcfFX8NCh9xbIXHqkliPnecRL9XVerCVtipq9Hpm48KLqEldU32M7dJxhDcAAmkQ%3D%3D&q=Compact+Drive+Roman+Recenzii&sa=X&ved=2ahUKEwiHs9K3jJCRAxXNywIHHUTyCRoQ0bkNegQIIRAD&cshid=1764169792640398&biw=1536&bih=730&dpr=1.25#lrd=0x40caa3eed6e33e05:0x121539b93879e5d4,3,,,,"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2"
+            >
               <span>Lasă o recenzie pe GOOGLE</span>
-            </button>
-            <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2">
+            </a>
+            <a 
+              href="https://www.facebook.com/compact.drive"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2"
+            >
               <span>Lasă o recenzie pe FACEBOOK</span>
-            </button>
+            </a>
           </div>
         </div>
       </section>
