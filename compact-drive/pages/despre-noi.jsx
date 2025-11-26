@@ -46,7 +46,7 @@ const DespreNoi = () => {
     {
       icon: <Users size={48} />,
       title: "Comunitate",
-      description: "Peste 5000 de elevi promovați în ultimii 5 ani. Fă și tu parte din familia Compact Drive!"
+      description: "Peste 500 de elevi promovați în ultimii 5 ani. Fă și tu parte din familia Compact Drive!"
     }
   ];
 
@@ -446,5 +446,6 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
 
