@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock, Car, DollarSign, Plus, Minus } from 'lucide-react';
+import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock, Car, Plus, Minus } from 'lucide-react';
 
 const Autovehicule = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -348,10 +348,17 @@ const Autovehicule = () => {
                     ))}
                   </div>
 
-                  <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
-                    <DollarSign size={18} />
-                    <span>Plată cash</span>
-                  </button>
+                  <a 
+                    href="/inscriere"
+                    className={`w-full ${
+                      index % 2 === 0 
+                        ? 'bg-red-600 hover:bg-red-700' 
+                        : 'bg-gray-900 hover:bg-gray-800'
+                    } text-white py-3 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2`}
+                  >
+                    <span>Înscrie-te acum</span>
+                    <ChevronRight size={18} />
+                  </a>
                 </div>
               </div>
             ))}
