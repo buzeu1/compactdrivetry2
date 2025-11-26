@@ -435,7 +435,7 @@ const Inscriere = () => {
         </div>
 
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; 2024 Compact Drive. Toate drepturile rezervate.</p>
+          <p>&copy; 2025 G.Y.A. COMPACT STAR SRL. Toate drepturile rezervate.</p>
         </div>
       </footer>
 
