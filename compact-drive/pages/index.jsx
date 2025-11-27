@@ -480,7 +480,7 @@ const CompactDrive = () => {
               Mărturii Reale de la Elevi
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Peste 500+ elevi mulțumiți care au promovat examenul! Ascultă direct de la ei despre experiența lor la Compact Drive.
+              Peste 1000+ elevi mulțumiți care au promovat examenul! Ascultă direct de la ei despre experiența lor la Compact Drive.
             </p>
           </div>
 
@@ -507,7 +507,7 @@ const CompactDrive = () => {
             {/* Stats sub video */}
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
-                <div className="text-4xl font-bold text-red-600 mb-2">500+</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">1000+</div>
                 <div className="text-gray-300">Elevi Promovați</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
