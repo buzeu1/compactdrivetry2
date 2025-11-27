@@ -113,9 +113,11 @@ const Inscriere = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-4">
             {/* Logo Space */}
-            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
-              <span className="text-red-600 font-bold text-2xl">CD</span>
-            </div>
+             <img 
+            src="/logo.jpg" 
+            alt="Compact Drive" 
+            className="w-16 h-16 rounded-full object-cover"
+            />
             
             <div className="flex items-center space-x-2">
               <div className="text-2xl font-bold">
@@ -398,7 +400,7 @@ const Inscriere = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={20} className="text-red-600" />
-                <span>+40 770 935 065</span>
+                <span>+40 768 211 211</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-red-600" />
