@@ -32,12 +32,12 @@ const Autovehicule = () => {
     {
       category: "Bmw Seria 1",
       title: "CURS COMPLET Categoria  B",
-      subtitle: "Cutie Manuală",
+      subtitle: null
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
       details: ["An fabricație 2017", "Motorizare 156cmc" ],
-      badge: null
+      badge: "Cutie Manuală"
     },
     {
       category: "Bmw X1 2014",
@@ -47,7 +47,7 @@ const Autovehicule = () => {
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
       details: ["An fabricație 2014", "Motorizare 160cmc", ],
-      badge: null
+      badge: "Cutie Automata"
     },
     {
       category: "Peugeot 308",
