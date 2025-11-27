@@ -39,7 +39,7 @@ const Autovehicule = () => {
       badge: "Cutie Manuală"
     },
     {
-      category: "Bmw X1 2014",
+      category: "Bmw X1 ",
       title: "CURS COMPLET Categoria B",
       price: "2900",
       priceVat: "(TVA inclus)",
@@ -53,7 +53,7 @@ const Autovehicule = () => {
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-      details: ["An fabricație 2014" ],
+      details: ["An fabricație 2016" ],
       badge: "Cutie Manuală"
     },
     {
