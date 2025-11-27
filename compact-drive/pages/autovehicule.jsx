@@ -108,8 +108,10 @@ const Autovehicule = () => {
     {
       title: "SEDINTE SUPLIMENTARE",
       description: "Ore suplimentare de condus pentru elevii care au nevoie de mai multă practică.",
-      price: "115 RON/oră(Cat. B)",
-      price: "150 RON/oră(Cat. C)",
+      price: {
+        B: "115 RON/oră",
+        C: "150 RON/oră"
+      },
       details: [
         "Ore suplimentare de condus cu instructorul",
         "Flexibilitate în programare",
@@ -120,11 +122,11 @@ const Autovehicule = () => {
     {
       title: "PACHET +10",
       description: "Pachet de 10 ore suplimentare de condus la un preț avantajos.",
-      price: "750 RON",
-      pricePerHour: "(75 RON/oră)",
+      price: "1050 RON(Cat. B)",
+      pricePerHour: "(105 RON/oră)",
       details: [
         "10 ore suplimentare de condus",
-        "Discount de 5% față de prețul standard",
+        "Discount de 8,7% față de prețul standard",
         "Valabilitate 3 luni",
         "Carburant inclus"
       ]
@@ -132,11 +134,11 @@ const Autovehicule = () => {
     {
       title: "PACHET +5",
       description: "Pachet de 5 ore suplimentare de condus pentru practică intensivă.",
-      price: "390 RON",
-      pricePerHour: "(78 RON/oră)",
+      price: "550 RON(Cat. B)",
+      pricePerHour: "(110 RON/oră)",
       details: [
         "5 ore suplimentare de condus",
-        "Discount de 2.5% față de prețul standard",
+        "Discount de 4.35% față de prețul standard",
         "Valabilitate 2 luni",
         "Carburant inclus"
       ]
@@ -144,9 +146,12 @@ const Autovehicule = () => {
     {
       title: "PACHET REPEAT",
       description: "Pachet special pentru reluarea examenului de conducere.",
-      price: "800 RON (Cat. B) / 1200 RON (Cat. C)",
+      price: {
+        B: "800 RON",
+        C: "1200 RON"
+      },
       details: [
-        "3 ore de pregătire intensivă",
+        "3 ședințe de pregătire intensivă",
         "Simulare traseu examen",
         "Însoțire la examen cu instructorul",
         "Taxe administrative incluse"
@@ -155,7 +160,7 @@ const Autovehicule = () => {
     {
       title: "EXAMEN",
       description: "Servicii complete pentru susținerea examenului de conducere.",
-      price: "350 RON",
+      price: "0 RON(B+C)",
       details: [
         "Însoțire la examen",
         "Mașină pentru examen",
@@ -166,7 +171,10 @@ const Autovehicule = () => {
     {
       title: "REDOBANDIRE",
       description: "Program complet pentru redobândirea permisului de conducere.",
-      price: "De la 1500 RON",
+      price: {
+        B: "1000 RON",
+        C: "1200 RON"
+      },
       details: [
         "Evaluare inițială",
         "Ore de condus personalizate",
