@@ -108,10 +108,10 @@ const Autovehicule = () => {
     {
       title: "SEDINTE SUPLIMENTARE",
       description: "Ore suplimentare de condus pentru elevii care au nevoie de mai multă practică.",
-      price: {
-        B: "115 RON/oră",
-        C: "150 RON/oră"
-      },
+      prices: [
+        { category: "B", value: "115 RON/oră" },
+        { category: "C", value: "150 RON/oră" }
+      ],
       details: [
         "Ore suplimentare de condus cu instructorul",
         "Flexibilitate în programare",
@@ -122,8 +122,8 @@ const Autovehicule = () => {
     {
       title: "PACHET +10",
       description: "Pachet de 10 ore suplimentare de condus la un preț avantajos.",
-      price: "1050 RON(Cat. B)",
-      pricePerHour: "(105 RON/oră)",
+      price: "1050 RON",
+      pricePerHour: "(105 RON/oră - Cat. B)",
       details: [
         "10 ore suplimentare de condus",
         "Discount de 8,7% față de prețul standard",
@@ -134,8 +134,8 @@ const Autovehicule = () => {
     {
       title: "PACHET +5",
       description: "Pachet de 5 ore suplimentare de condus pentru practică intensivă.",
-      price: "550 RON(Cat. B)",
-      pricePerHour: "(110 RON/oră)",
+      price: "550 RON",
+      pricePerHour: "(110 RON/oră - Cat. B)",
       details: [
         "5 ore suplimentare de condus",
         "Discount de 4.35% față de prețul standard",
@@ -146,10 +146,10 @@ const Autovehicule = () => {
     {
       title: "PACHET REPEAT",
       description: "Pachet special pentru reluarea examenului de conducere.",
-      price: {
-        B: "800 RON",
-        C: "1200 RON"
-      },
+      prices: [
+        { category: "B", value: "800 RON" },
+        { category: "C", value: "1200 RON" }
+      ],
       details: [
         "3 ședințe de pregătire intensivă",
         "Simulare traseu examen",
@@ -160,7 +160,8 @@ const Autovehicule = () => {
     {
       title: "EXAMEN",
       description: "Servicii complete pentru susținerea examenului de conducere.",
-      price: "0 RON(B+C)",
+      price: "0 RON",
+      pricePerHour: "(B+C)",
       details: [
         "Însoțire la examen",
         "Mașină pentru examen",
@@ -171,10 +172,10 @@ const Autovehicule = () => {
     {
       title: "REDOBANDIRE",
       description: "Program complet pentru redobândirea permisului de conducere.",
-      price: {
-        B: "1000 RON",
-        C: "1200 RON"
-      },
+      prices: [
+        { category: "B", value: "1000 RON" },
+        { category: "C", value: "1200 RON" }
+      ],
       details: [
         "Evaluare inițială",
         "Ore de condus personalizate",
@@ -381,9 +382,22 @@ const Autovehicule = () => {
                 <div className="bg-gradient-to-br from-gray-900 to-black text-white p-6">
                   <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
                   <div className="text-3xl font-bold text-red-600">
-                    {service.price}
-                    {service.pricePerHour && (
-                      <span className="text-sm text-gray-300 block mt-1">{service.pricePerHour}</span>
+                    {service.prices ? (
+                      <div className="space-y-2">
+                        {service.prices.map((priceItem, idx) => (
+                          <div key={idx} className="text-2xl">
+                            <span className="text-lg text-gray-300">Cat. {priceItem.category}: </span>
+                            {priceItem.value}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <>
+                        {service.price}
+                        {service.pricePerHour && (
+                          <span className="text-sm text-gray-300 block mt-1">{service.pricePerHour}</span>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
