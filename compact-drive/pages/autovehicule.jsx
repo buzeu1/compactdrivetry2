@@ -481,7 +481,7 @@ const Autovehicule = () => {
               <span className="text-red-600">COMPACT</span> DRIVE
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Promovăm respectul reciproc în trafic și conduita corectă la volan.
+              Formăm șoferi responsabili, pentru un trafic bazat pe respect și siguranță.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/compact.drive" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-red-700 p-2 rounded transition">
