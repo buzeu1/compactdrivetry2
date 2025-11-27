@@ -64,11 +64,8 @@ const Inscriere = () => {
   };
 
   const categories = [
-    'Categoria A1 - Moto Incepator',
-    'Categoria A2 - Moto Pro',
-    'Categoria A - Moto Expert',
-    'Categoria B - Auto',
-    'Categoria B Automat - Auto Automat',
+    'Categoria B - Cutie Manuală',
+    'Categoria B - Cutie Automată',
     'Categoria C - Camion',
     'Categoria CE - Camion + Remorca'
   ];
