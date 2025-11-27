@@ -313,7 +313,7 @@ const DespreNoi = () => {
               <ChevronRight size={20} />
             </a>
             <a 
-              href="tel:+40770935065"
+              href="tel:+40768211211"
               className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2"
             >
               <Phone size={20} />
@@ -446,6 +446,7 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
 
 
