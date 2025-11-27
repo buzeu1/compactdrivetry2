@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Phone, Mail, MapPin, Clock, CheckCircle, Menu, X, Book } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Phone, Mail, MapPin, Clock, CheckCircle, Menu, X, Book, Play } from 'lucide-react';
 
 const CompactDrive = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -654,6 +654,78 @@ const CompactDrive = () => {
             >
               <span>Lasă o recenzie pe FACEBOOK</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO REVIEWS SECTION - NOU! */}
+      <section className="py-16 px-6 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            data-section="video-reviews-header"
+            className={`text-center mb-12 transition-all duration-1000 ${
+              visibleSections['video-reviews-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <p className="text-sm font-semibold tracking-wider uppercase mb-4 text-gray-300">
+              VEZI RECENZIILE VIDEO
+            </p>
+            <h2 className="text-5xl font-bold mb-6">
+              Mărturii Reale de la Elevi
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Peste 500+ elevi mulțumiți care au promovat examenul! Ascultă direct de la ei despre experiența lor la Compact Drive.
+            </p>
+          </div>
+
+          {/* Video Player Principal */}
+          <div 
+            data-section="video-reviews-player"
+            className={`max-w-5xl mx-auto transition-all duration-1000 ${
+              visibleSections['video-reviews-player'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-800">
+              {/* Înlocuiește cu path-ul către video-ul tău */}
+              <video 
+                className="w-full aspect-video object-cover"
+                controls
+                poster="/recenzii-thumbnail.png"
+              >
+                <source src="/recenzii-video.mp4" type="video/mp4" />
+                Browserul tău nu suportă redarea video.
+              </video>
+              
+              {/* Overlay decorativ când video nu este pornit */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+            </div>
+
+            {/* Stats sub video */}
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                <div className="text-4xl font-bold text-red-600 mb-2">500+</div>
+                <div className="text-gray-300">Elevi Promovați</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                <div className="text-4xl font-bold text-red-600 mb-2">98%</div>
+                <div className="text-gray-300">Satisfacție Clienți</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20">
+                <div className="text-4xl font-bold text-red-600 mb-2">5⭐</div>
+                <div className="text-gray-300">Rating Mediu</div>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center mt-12">
+              <a 
+                href="/inscriere"
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center space-x-2 text-lg"
+              >
+                <span>Vreau și eu să fiu următorul!</span>
+                <ChevronRight size={20} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
