@@ -35,95 +35,69 @@ const Autovehicule = () => {
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-      details: ["An fabricație 2017", "Motorizare 156cmc" ],
+      details: ["An fabricație 2017" ],
       badge: "Cutie Manuală"
     },
     {
       category: "Bmw X1 2014",
       title: "CURS COMPLET Categoria B",
-      subtitle: "Cutie Automată",
       price: "2900",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-      details: ["An fabricație 2014", "Motorizare 160cmc", ],
+      details: ["An fabricație 2014" ],
       badge: "Cutie‎‎ Automata"
     },
     {
       category: "Peugeot 308",
       title: "CURS COMPLET Categoria B",
-      subtitle: "Cutie Manuală",
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-      details: ["An fabricație 2014", "Motorizare 300cmc" ],
-      badge: null
+      details: ["An fabricație 2014" ],
+      badge: "Cutie Manuală"
     },
     {
       category: "Renault Megane",
       title: "CURS COMPLET Categoria B",
-      subtitle: "Cutie Manuală",
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
-      details: ["An fabricație 2015", "Motorizare 1400cmc" ],
-      badge: "NOU"
+      details: ["An fabricație 2015" ],
+      badge: "Cutie Manuală"
     },
     {
       category: "Peugeot 308",
-      title: "CURS COMPLET Categoria B",
-      subtitle: "Cutie Manuală",
+      title: "CURS COMPLET Categoria B",  
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
-      details: ["An fabricație 2015", "Motorizare 1000cmc" ],
-      badge: null
+      details: ["An fabricație 2015" ],
+      badge: "Cutie Manuală"
     },
     {
       category: "Renault Megane",
       title: "CURS COMPLET Categoria B",
-      subtitle: "Cutie Manuală",
       price: "2700",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
-      details: ["An fabricație 2014", "Motorizare 1000cmc" ],
-      badge: null
+      details: ["An fabricație 2014" ],
+      badge: "Cutie Manuală"
     },
     {
       category: "Camion MAN",
       title: "CURS COMPLET Categoria C",
-      subtitle: "Cutie Automată",
       price: "2900",
       priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
-      details: ["An fabricație 2013", "Motorizare 1500cmc"],
-      badge: "AUTOMAT"
-    },
-    {
-      category: "AUTO B",
-      title: "CURS COMPLET Categoria B",
-      subtitle: "Minim 300KM Conducere",
-      price: "2636",
-      priceVat: "3190 cu TVA",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
-      details: ["Renault Clio 2023", "Motorizare 1200cmc", "Instructor Dedicat"],
-      badge: "NOU"
-    },
-    {
-      category: "CAMION C",
-      title: "CURS COMPLET Categoria C",
-      subtitle: "Minim 200KM Conducere",
-      price: "1850",
-      priceVat: "2250 cu TVA",
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=300&fit=crop",
-      details: ["MAN TGM 2020", "Capacitate 10T", "Instructor Profesionist"],
-      badge: null
+      details: ["An fabricație 2013"],
+      badge: "Cutie Automată"
     },
     {
       category: "CAMION CE",
       title: "CURS COMPLET Categoria CE",
       subtitle: "Minim 250KM Conducere",
-      price: "1950",
-      priceVat: "2350 cu TVA",
+      price: "2300",
+      priceVat: "(TVA inclus)",
       image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=300&fit=crop",
       details: ["MAN TGM + Remorcă", "Capacitate 10T", "Training Complet"],
       badge: null
