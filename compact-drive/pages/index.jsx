@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight, Star, Phone, Mail, MapPin, Clock, CheckCircl
 
 const CompactDrive = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState({});
 
@@ -63,79 +62,6 @@ const CompactDrive = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Maria Ionescu",
-      category: "Elev Categoria B",
-      text: "Instructori profesioniști și răbdători! Am luat permisul din prima încercare datorită pregătirii excelente. Mașinile sunt noi și foarte bine întreținute. Recomand cu încredere!",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=5"
-    },
-    {
-      name: "Andrei Popescu",
-      category: "Elev Categoria A",
-      text: "Cea mai bună școală de șoferi din Roman! Instructorii sunt dedicați, programul este flexibil și atmosfera este prietenoasă. M-am simțit în siguranță de la prima lecție.",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=12"
-    },
-    {
-      name: "Elena Dobre",
-      category: "Elev Categoria B",
-      text: "Mulțumesc echipei Compact Drive pentru profesionalism și răbdare! Am depășit frica de condus și acum mă simt încrezătoare la volan. Vă recomand cu drag!",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=9"
-    },
-    {
-      name: "Ion Munteanu",
-      category: "Elev Categoria C",
-      text: "Am obținut categoria C pentru camion și sunt foarte mulțumit de experiența la Compact Drive. Instructorii au multă experiență în transporturi și mi-au explicat totul foarte clar, de la manevră până la conducere defensivă. Recomand cu încredere!",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=33"
-    },
-    {
-      name: "Gheorghe Stanciu",
-      category: "Elev Categoria CE",
-      text: "Pregătirea pentru categoria CE a fost excelentă! Am învățat să manevrezi remorca cu mare atenție și să fac cuplarea corect. Instructorii sunt foarte răbdători și profesioniști. Am promovat din prima!",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=15"
-    },
-    {
-      name: "Mihai Vasile",
-      category: "Elev Categoria C",
-      text: "Instructorii de la Compact Drive m-au pregătit foarte bine pentru categoria C. Am învățat toate aspectele condusului defensiv și de siguranță pentru transportul de mărfuri. Mașinile sunt moderne și bine întreținute.",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=52"
-    },
-    {
-      name: "Alexandra Radu",
-      category: "Elev Categoria B",
-      text: "Experiență minunată! De la primul curs teoretic până la ultimul curs practic, totul a fost organizat perfect. Instructorii sunt foarte dedicați și îți oferă încrederea de care ai nevoie la volan.",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=20"
-    },
-    {
-      name: "Constantin Pavel",
-      category: "Elev Categoria CE",
-      text: "Am făcut categoria CE aici și pot spune că are cei mai buni instructori pentru transport greu din Roman. M-au învățat tot ce trebuie să știu despre siguranța rutieră cu remorcă și cum să planific traseele eficient.",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=56"
-    },
-    {
-      name: "Cristina Nicolescu",
-      category: "Elev Categoria B",
-      text: "Compact Drive m-a ajutat să-mi depășesc teama de condus. Instructorii sunt foarte profesioniști și empatici. Programul este flexibil și se adaptează nevoilor tale. Mulțumesc pentru tot!",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=31"
-    },
-    {
-      name: "Daniel Marin",
-      category: "Elev Categoria C",
-      text: "Pregătirea pentru categoria C a fost foarte completă. Am învățat nu doar să conduc camionul, ci și aspecte importante despre întreținere și verificări zilnice. Instructorii sunt foarte experimentați în domeniu.",
-      rating: 5,
-      avatar: "https://i.pravatar.cc/150?img=68"
-    }
-  ];
-
   const categories = [
     {
       title: "AUTO",
@@ -192,27 +118,12 @@ const CompactDrive = () => {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    const testimonialTimer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(testimonialTimer);
-  }, []);
-
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-  };
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
@@ -553,112 +464,7 @@ const CompactDrive = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div 
-            data-section="testimonials-header"
-            className={`text-center mb-12 transition-all duration-1000 ${
-              visibleSections['testimonials-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <h2 className="text-red-600 text-sm font-semibold tracking-wider uppercase mb-2">
-              IATĂ CE SPUN ELEVII DESPRE
-            </h2>
-            <h3 className="text-4xl font-bold text-gray-900">
-              Școala de șoferi COMPACT DRIVE
-            </h3>
-          </div>
-
-          <div 
-            data-section="testimonials-content"
-            className={`max-w-4xl mx-auto relative transition-all duration-1000 ${
-              visibleSections['testimonials-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-            <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-xl transition-all duration-500">
-              <div className="flex justify-center mb-6">
-                {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <Star key={i} className="text-yellow-400 fill-current" size={24} />
-                ))}
-              </div>
-
-              <p className="text-gray-700 text-lg leading-relaxed text-center mb-8 italic min-h-[120px] flex items-center justify-center">
-                "{testimonials[currentTestimonial].text}"
-              </p>
-
-              <div className="flex items-center justify-center space-x-4">
-                <img 
-                  src={testimonials[currentTestimonial].avatar}
-                  alt={testimonials[currentTestimonial].name}
-                  className="w-16 h-16 rounded-full object-cover shadow-lg"
-                />
-                <div>
-                  <div className="font-bold text-gray-900">{testimonials[currentTestimonial].name}</div>
-                  <div className="text-gray-600 text-sm">{testimonials[currentTestimonial].category}</div>
-                </div>
-              </div>
-            </div>
-
-            <button 
-              onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-gray-100 p-3 rounded-full shadow-lg transition"
-            >
-              <ChevronLeft size={24} className="text-gray-900" />
-            </button>
-
-            <button 
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-gray-100 p-3 rounded-full shadow-lg transition"
-            >
-              <ChevronRight size={24} className="text-gray-900" />
-            </button>
-
-            <div className="flex justify-center mt-8 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? 'bg-red-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Recenzie ${index + 1}`}
-                />
-              ))}
-            </div>
-            
-            <div className="text-center mt-4 text-gray-500 text-sm">
-              {currentTestimonial + 1} din {testimonials.length} recenzii
-            </div>
-          </div>
-
-          <div 
-            data-section="testimonials-buttons"
-            className={`mt-12 flex flex-col sm:flex-row justify-center gap-4 transition-all duration-1000 delay-300 ${
-              visibleSections['testimonials-buttons'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <a 
-              href="https://www.google.com/search?sca_esv=ef6e102d6c74609c&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-FsVYJ4ro_JHWWIFscg-xGQVPScETggdIZu9OopOQULTfKZGEGcfFX8NCh9xbIXHqkliPnecRL9XVerCVtipq9Hpm48KLqEldU32M7dJxhDcAAmkQ%3D%3D&q=Compact+Drive+Roman+Recenzii&sa=X&ved=2ahUKEwiHs9K3jJCRAxXNywIHHUTyCRoQ0bkNegQIIRAD&cshid=1764169792640398&biw=1536&bih=730&dpr=1.25#lrd=0x40caa3eed6e33e05:0x121539b93879e5d4,3,,,,"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2"
-            >
-              <span>Lasă o recenzie pe GOOGLE</span>
-            </a>
-            <a 
-              href="https://www.facebook.com/compact.drive"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2"
-            >
-              <span>Lasă o recenzie pe FACEBOOK</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* VIDEO REVIEWS SECTION - NOU! */}
+      {/* VIDEO REVIEWS SECTION */}
       <section className="py-16 px-6 bg-gradient-to-br from-gray-900 to-black text-white">
         <div className="max-w-7xl mx-auto">
           <div 
@@ -686,7 +492,6 @@ const CompactDrive = () => {
             }`}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-800">
-              {/* Înlocuiește cu path-ul către video-ul tău */}
               <video 
                 className="w-full aspect-video object-cover"
                 controls
@@ -696,7 +501,6 @@ const CompactDrive = () => {
                 Browserul tău nu suportă redarea video.
               </video>
               
-              {/* Overlay decorativ când video nu este pornit */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
             </div>
 
@@ -724,6 +528,26 @@ const CompactDrive = () => {
               >
                 <span>Vreau și eu să fiu următorul!</span>
                 <ChevronRight size={20} />
+              </a>
+            </div>
+
+            {/* Butoane Social */}
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+              <a 
+                href="https://www.google.com/search?sca_esv=ef6e102d6c74609c&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-FsVYJ4ro_JHWWIFscg-xGQVPScETggdIZu9OopOQULTfKZGEGcfFX8NCh9xbIXHqkliPnecRL9XVerCVtipq9Hpm48KLqEldU32M7dJxhDcAAmkQ%3D%3D&q=Compact+Drive+Roman+Recenzii&sa=X&ved=2ahUKEwiHs9K3jJCRAxXNywIHHUTyCRoQ0bkNegQIIRAD&cshid=1764169792640398&biw=1536&bih=730&dpr=1.25#lrd=0x40caa3eed6e33e05:0x121539b93879e5d4,3,,,,"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2 border border-white/20"
+              >
+                <span>Lasă o recenzie pe GOOGLE</span>
+              </a>
+              <a 
+                href="https://www.facebook.com/compact.drive"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition inline-flex items-center justify-center space-x-2 border border-white/20"
+              >
+                <span>Lasă o recenzie pe FACEBOOK</span>
               </a>
             </div>
           </div>
