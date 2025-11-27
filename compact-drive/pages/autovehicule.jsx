@@ -144,8 +144,10 @@ const Autovehicule = () => {
     {
       title: "PACHET REPEAT",
       description: "Pachet special pentru reluarea examenului de conducere.",
-      price: "800 RON(Cat. B)",
-      price: "1200 RON(Cat. C)",
+      price: [
+      "800 RON (Cat. B)",
+      "1200 RON (Cat. C)"
+      ],
       details: [
         "3 ore de pregătire intensivă",
         "Simulare traseu examen",
