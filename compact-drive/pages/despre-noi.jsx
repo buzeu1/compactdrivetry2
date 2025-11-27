@@ -46,13 +46,13 @@ const DespreNoi = () => {
     {
       icon: <Users size={48} />,
       title: "Comunitate",
-      description: "Peste 500 de elevi promovați în ultimii 5 ani. Fă și tu parte din familia Compact Drive!"
+      description: "Peste 1000 de elevi promovați în ultimii 5 ani. Fă și tu parte din familia Compact Drive!"
     }
   ];
 
   const stats = [
     { value: "5+", label: "Ani de Experiență" },
-    { value: "500+", label: "Elevi Promovați" },
+    { value: "1000+", label: "Elevi Promovați" },
     { value: "96%", label: "Rată Promovabilitate" },
     { value: "5+", label: "Instructori Profesioniști" }
   ];
@@ -302,7 +302,7 @@ const DespreNoi = () => {
             Pregătit să începi?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Alătură-te celor peste 500 de elevi care au obținut permisul cu Compact Drive!
+            Alătură-te celor peste 1000 de elevi care au obținut permisul cu Compact Drive!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 
@@ -331,7 +331,7 @@ const DespreNoi = () => {
               <span className="text-red-600">COMPACT</span> DRIVE
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Promovăm respectul reciproc în trafic și conduita corectă la volan.
+              Formăm șoferi responsabili, pentru un trafic bazat pe respect și siguranță.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/compact.drive" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-red-700 p-2 rounded transition">
@@ -446,6 +446,7 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
 
 
