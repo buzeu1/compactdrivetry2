@@ -275,8 +275,8 @@ const Autovehicule = () => {
               Tarife Școală de Șoferi
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              În funcție de Categorie, Pachetele de preț conțin <strong>CURSUL COMPLET</strong>. 
-              Curs legislație rutieră, ore de conducere, simulări teoretice și practice, carburant, suport pentru pregătirea dosarului.
+              În funcție de categorie, pachetele noastre includ tot ce ai nevoie pentru a obține permisul fără stres:<strong> curs complet de legislație, 15 ședințe de conducere, simulări teoretice și practice, carburant și acces nelimitat la ore de legislație, fără costuri suplimentare</strong>. 
+              Îți oferim asistență completă pentru întocmirea dosarului, iar în ziua examenului la traseu nu plătești nimic. Alegându-ne, știi că ești pregătit și susținut la fiecare pas.
             </p>
           </div>
         </div>
