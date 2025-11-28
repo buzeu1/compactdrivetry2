@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Inscriere = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,8 +15,12 @@ const Inscriere = () => {
     categorie: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
+    // Inițializează EmailJS cu Public Key
+    emailjs.init('u1hQuhjSFBFKaDwrV');
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,23 +42,48 @@ const Inscriere = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormSubmitted(true);
-    
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        nume: '',
-        prenume: '',
-        telefon: '',
-        email: '',
-        adresa: '',
-        dataNasterii: '',
-        categorie: ''
-      });
-    }, 3000);
+    setIsSubmitting(true);
+
+    try {
+      // Trimite email prin EmailJS
+      await emailjs.send(
+        'service_n8kqcao',
+        'template_361gctc',
+        {
+          nume: formData.nume,
+          prenume: formData.prenume,
+          telefon: formData.telefon,
+          email: formData.email,
+          adresa: formData.adresa,
+          dataNasterii: formData.dataNasterii,
+          categorie: formData.categorie
+        }
+      );
+
+      console.log('Form submitted:', formData);
+      setFormSubmitted(true);
+      
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({
+          nume: '',
+          prenume: '',
+          telefon: '',
+          email: '',
+          adresa: '',
+          dataNasterii: '',
+          categorie: ''
+        });
+      }, 3000);
+
+    } catch (error) {
+      console.error('Eroare la trimitere:', error);
+      alert('A apărut o eroare la trimiterea formularului. Te rugăm să încerci din nou.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -109,11 +139,10 @@ const Inscriere = () => {
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-4">
-            {/* Logo Space */}
-             <img 
-            src="/logo.jpg" 
-            alt="Compact Drive" 
-            className="w-16 h-16 rounded-full object-cover"
+            <img 
+              src="/logo.jpg" 
+              alt="Compact Drive" 
+              className="w-16 h-16 rounded-full object-cover"
             />
             
             <div className="flex items-center space-x-2">
@@ -290,7 +319,7 @@ const Inscriere = () => {
                           name="telefon"
                           value={formData.telefon}
                           onChange={handleChange}
-                          placeholder="nr tău de telefon)"
+                          placeholder="nr tău de telefon"
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                         />
@@ -358,12 +387,14 @@ const Inscriere = () => {
                         ))}
                       </select>
                     </div>
+                    
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <span>Trimite Înscriere!</span>
-                      <ChevronRight size={24} />
+                      <span>{isSubmitting ? 'Se trimite...' : 'Trimite Înscriere!'}</span>
+                      {!isSubmitting && <ChevronRight size={24} />}
                     </button>
                   </form>
                 )}
