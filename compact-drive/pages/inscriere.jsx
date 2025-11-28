@@ -44,6 +44,18 @@ const Inscriere = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // PROTECȚIE ANTI-SPAM: Verifică dacă a mai trimis recent
+    const lastSubmit = localStorage.getItem('lastFormSubmit');
+    const now = Date.now();
+    const waitTime = 5 * 60 * 1000; // 5 minute
+    
+    if (lastSubmit && (now - parseInt(lastSubmit)) < waitTime) {
+      const minutesLeft = Math.ceil((waitTime - (now - parseInt(lastSubmit))) / 60000);
+      alert(`Ai trimis deja o înscriere! Te rugăm să aștepți ${minutesLeft} minute înainte de a trimite din nou.`);
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -61,6 +73,9 @@ const Inscriere = () => {
           categorie: formData.categorie
         }
       );
+
+      // Salvează timestamp-ul când a trimis
+      localStorage.setItem('lastFormSubmit', now.toString());
 
       console.log('Form submitted:', formData);
       setFormSubmitted(true);
