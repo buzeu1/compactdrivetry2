@@ -12,7 +12,8 @@ const Inscriere = () => {
     email: '',
     adresa: '',
     dataNasterii: '',
-    categorie: ''
+    categorie: '',
+    acceptaGDPR: false
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -89,7 +90,8 @@ const Inscriere = () => {
           email: '',
           adresa: '',
           dataNasterii: '',
-          categorie: ''
+          categorie: '',
+          acceptaGDPR: false
         });
       }, 3000);
 
@@ -402,10 +404,29 @@ const Inscriere = () => {
                         ))}
                       </select>
                     </div>
+
+                    {/* GDPR Checkbox */}
+                    <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg border-2 border-gray-200">
+                      <input
+                        type="checkbox"
+                        name="acceptaGDPR"
+                        id="acceptaGDPR"
+                        checked={formData.acceptaGDPR}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          acceptaGDPR: e.target.checked
+                        })}
+                        required
+                        className="mt-1 w-5 h-5 text-red-600 border-gray-300 rounded focus:ring-red-500 cursor-pointer"
+                      />
+                      <label htmlFor="acceptaGDPR" className="text-sm text-gray-700 leading-relaxed cursor-pointer">
+                        Sunt de acord cu <a href="/politica-confidentialitate" target="_blank" className="text-red-600 hover:underline font-semibold">prelucrarea datelor personale</a> în conformitate cu GDPR și politica de confidențialitate a școlii Compact Drive. <span className="text-red-600">*</span>
+                      </label>
+                    </div>
                     
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !formData.acceptaGDPR}
                       className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <span>{isSubmitting ? 'Se trimite...' : 'Trimite Înscriere!'}</span>
