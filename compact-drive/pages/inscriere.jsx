@@ -429,7 +429,7 @@ const Inscriere = () => {
                       disabled={isSubmitting || !formData.acceptaGDPR}
                       className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <span>{isSubmitting ? 'Se trimite...' : 'Trimite Înscriere!'}</span>
+                      <span>{isSubmitting ? 'Se trimite...' : 'Trimite Înscrierea!'}</span>
                       {!isSubmitting && <ChevronRight size={24} />}
                     </button>
                   </form>
