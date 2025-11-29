@@ -256,7 +256,7 @@ const CompactDrive = () => {
         </div>
       </section>
 
-      {/* Gallery Section - SIMPLU SI FUNCTIONAL */}
+      {/* Gallery Section - OPTIMIZAT PENTRU DESKTOP */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div 
@@ -279,55 +279,58 @@ const CompactDrive = () => {
               visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
             }`}
           >
-            <div className="overflow-hidden rounded-2xl shadow-2xl relative">
-              <img 
-                src={currentImage.image_url} 
-                alt="Elev promovat"
-                className="w-full h-[500px] object-cover"
-                style={{ objectPosition: 'center 1%' }}
-              />
-              
-              {/* Data în colțul stânga sus */}
-              {currentImage.exam_date && (
-                <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm">
-                  <Calendar size={24} />
-                  <div>
-                    <div className="text-xs font-semibold opacity-90">Promovat pe</div>
-                    <div className="text-lg font-bold">{currentImage.exam_date}</div>
+            {/* Container mai îngust pentru desktop - max-w-4xl in loc de full width */}
+            <div className="max-w-4xl mx-auto">
+              <div className="overflow-hidden rounded-2xl shadow-2xl relative">
+                <img 
+                  src={currentImage.image_url} 
+                  alt="Elev promovat"
+                  className="w-full h-[400px] md:h-[600px] lg:h-[700px] object-cover"
+                  style={{ objectPosition: 'center center' }}
+                />
+                
+                {/* Data în colțul stânga sus */}
+                {currentImage.exam_date && (
+                  <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 md:px-6 md:py-3 rounded-xl shadow-2xl flex items-center space-x-2 md:space-x-3 backdrop-blur-sm">
+                    <Calendar size={20} className="md:w-6 md:h-6" />
+                    <div>
+                      <div className="text-xs font-semibold opacity-90">Promovat pe</div>
+                      <div className="text-base md:text-lg font-bold">{currentImage.exam_date}</div>
+                    </div>
                   </div>
-                </div>
+                )}
+              </div>
+
+              {galleryImages.length > 1 && (
+                <>
+                  <button 
+                    onClick={prevImage}
+                    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+                  >
+                    <ChevronLeft size={20} className="md:w-6 md:h-6 text-gray-900" />
+                  </button>
+
+                  <button 
+                    onClick={nextImage}
+                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+                  >
+                    <ChevronRight size={20} className="md:w-6 md:h-6 text-gray-900" />
+                  </button>
+
+                  <div className="flex justify-center mt-6 space-x-2">
+                    {galleryImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition ${
+                          index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
               )}
             </div>
-
-            {galleryImages.length > 1 && (
-              <>
-                <button 
-                  onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-                >
-                  <ChevronLeft size={24} className="text-gray-900" />
-                </button>
-
-                <button 
-                  onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-                >
-                  <ChevronRight size={24} className="text-gray-900" />
-                </button>
-
-                <div className="flex justify-center mt-6 space-x-2">
-                  {galleryImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`w-3 h-3 rounded-full transition ${
-                        index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
           </div>
         </div>
       </section>
