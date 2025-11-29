@@ -23,8 +23,8 @@ const AdminLogin = () => {
 
       if (error) throw error;
 
-      // Dacă login-ul este success, mergi la pagina de admin
-      router.push('/admin-gallery');
+      // Redirect la admin-dashboard în loc de direct la gallery
+      router.push('/admin-dashboard');
     } catch (error) {
       setError('Email sau parolă incorectă!');
       console.error('Error:', error);
@@ -43,7 +43,7 @@ const AdminLogin = () => {
           <h1 className="text-4xl font-bold text-white mb-2">
             <span className="text-red-600">COMPACT</span> DRIVE
           </h1>
-          <p className="text-gray-400">Panou Administrare Galerie</p>
+          <p className="text-gray-400">Panou Administrare</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-2xl p-8">
