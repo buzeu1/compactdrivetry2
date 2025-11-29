@@ -284,7 +284,7 @@ const CompactDrive = () => {
                 src={currentImage.image_url} 
                 alt="Elev promovat"
                 className="w-full h-[500px] object-cover"
-                style={{ objectPosition: 'center 35%' }}
+                style={{ objectPosition: 'center 100%' }}
               />
               
               {/* Data în colțul stânga sus */}
