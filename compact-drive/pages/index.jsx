@@ -8,6 +8,7 @@ const CompactDrive = () => {
   const [visibleSections, setVisibleSections] = useState({});
   const [galleryImages, setGalleryImages] = useState([]);
   const [loadingGallery, setLoadingGallery] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // Fetch images from Supabase
   useEffect(() => {
@@ -15,6 +16,7 @@ const CompactDrive = () => {
   }, []);
 
   const fetchGalleryImages = async () => {
+    setLoadingGallery(true);
     try {
       const { data, error } = await supabase
         .from('gallery_images')
@@ -24,8 +26,26 @@ const CompactDrive = () => {
       if (error) throw error;
       
       if (data && data.length > 0) {
-        setGalleryImages(data);
-        setCurrentImageIndex(0); // Reset index când se încarcă imagini noi
+        // Preload prima imagine
+        const img = new Image();
+        img.src = data[0].image_url;
+        img.onload = () => {
+          setGalleryImages(data);
+          setCurrentImageIndex(0);
+          setImagesLoaded(true);
+          setLoadingGallery(false);
+        };
+        img.onerror = () => {
+          // Dacă prima imagine nu se încarcă, folosește default
+          setGalleryImages([{
+            id: 1,
+            image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
+            exam_date: "Adaugă imagini în admin"
+          }]);
+          setCurrentImageIndex(0);
+          setImagesLoaded(true);
+          setLoadingGallery(false);
+        };
       } else {
         // Dacă nu sunt imagini în baza de date, folosește imagini default
         setGalleryImages([
@@ -36,6 +56,8 @@ const CompactDrive = () => {
           }
         ]);
         setCurrentImageIndex(0);
+        setImagesLoaded(true);
+        setLoadingGallery(false);
       }
     } catch (error) {
       console.error('Error fetching gallery:', error);
@@ -44,11 +66,11 @@ const CompactDrive = () => {
         {
           id: 1,
           image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
-          exam_date: "Adaugă imagini în admin"
+          exam_date: "Eroare la încărcare - vezi admin"
         }
       ]);
       setCurrentImageIndex(0);
-    } finally {
+      setImagesLoaded(true);
       setLoadingGallery(false);
     }
   };
@@ -151,13 +173,13 @@ const CompactDrive = () => {
 
   // Auto-rotate gallery only when images are loaded
   useEffect(() => {
-    if (galleryImages.length > 0 && !loadingGallery) {
+    if (imagesLoaded && galleryImages.length > 1) {
       const timer = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
       }, 5000); // 5 secunde între imagini
       return () => clearInterval(timer);
     }
-  }, [galleryImages, loadingGallery]);
+  }, [galleryImages.length, imagesLoaded]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
@@ -294,26 +316,21 @@ const CompactDrive = () => {
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-red-600"></div>
               <p className="text-gray-600 mt-4">Se încarcă galeria...</p>
             </div>
-          ) : galleryImages.length > 0 ? (
+          ) : (
             <div 
               data-section="gallery-content"
               className={`relative group transition-all duration-1000 ${
                 visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             >
-              <div className="overflow-hidden rounded-2xl shadow-2xl relative bg-gray-200">
-                {galleryImages[currentImageIndex] && (
+              <div className="overflow-hidden rounded-2xl shadow-2xl relative bg-gray-200 min-h-[500px] flex items-center justify-center">
+                {galleryImages.length > 0 && galleryImages[currentImageIndex] ? (
                   <>
                     <img 
-                      key={`gallery-${currentImageIndex}-${galleryImages[currentImageIndex].id}`}
                       src={galleryImages[currentImageIndex].image_url} 
                       alt={`Promovat ${galleryImages[currentImageIndex].exam_date}`}
                       className="w-full h-[500px] object-cover"
-                      loading="eager"
-                      onError={(e) => {
-                        console.error('Image failed to load:', e.target.src);
-                        e.target.src = "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop";
-                      }}
+                      style={{ display: 'block' }}
                     />
                     
                     {/* Data în colțul stânga sus */}
@@ -327,6 +344,10 @@ const CompactDrive = () => {
                       </div>
                     )}
                   </>
+                ) : (
+                  <div className="text-gray-400 text-center p-12">
+                    <p>Se încarcă imaginea...</p>
+                  </div>
                 )}
               </div>
 
@@ -347,9 +368,9 @@ const CompactDrive = () => {
                   </button>
 
                   <div className="flex justify-center mt-6 space-x-2">
-                    {galleryImages.map((_, index) => (
+                    {galleryImages.map((img, index) => (
                       <button
-                        key={index}
+                        key={img.id || index}
                         onClick={() => setCurrentImageIndex(index)}
                         className={`transition-all duration-300 rounded-full ${
                           index === currentImageIndex 
@@ -361,10 +382,6 @@ const CompactDrive = () => {
                   </div>
                 </>
               )}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600">Nu sunt imagini în galerie. Adaugă imagini din panoul admin!</p>
             </div>
           )}
         </div>
