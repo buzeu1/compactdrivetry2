@@ -279,13 +279,13 @@ const CompactDrive = () => {
               visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
             }`}
           >
-            {/* Container mult mai îngust pentru desktop - max-w-3xl */}
-            <div className="max-w-3xl mx-auto">
+            {/* Container foarte îngust pentru poze verticale de telefon - max-w-xl pe desktop */}
+            <div className="w-full md:max-w-xl md:mx-auto">
               <div className="overflow-hidden rounded-2xl shadow-2xl relative">
                 <img 
                   src={currentImage.image_url} 
                   alt="Elev promovat"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[500px] md:h-[600px] object-cover"
                   style={{ objectPosition: 'center center' }}
                 />
                 
