@@ -640,7 +640,7 @@ const CompactDrive = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={20} className="text-red-600" />
-                <span>+40 770 935 065</span>
+                <span>+40 768 211 211</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-red-600" />
