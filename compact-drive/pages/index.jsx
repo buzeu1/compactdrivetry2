@@ -6,74 +6,44 @@ const CompactDrive = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState({});
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loadingGallery, setLoadingGallery] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [galleryImages, setGalleryImages] = useState([
+    {
+      id: 'default',
+      image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
+      exam_date: "Se încarcă..."
+    }
+  ]);
 
-  // Fetch images from Supabase
+  // Fetch images from Supabase - SIMPLU
   useEffect(() => {
-    fetchGalleryImages();
-  }, []);
+    const loadImages = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('gallery_images')
+          .select('*')
+          .order('created_at', { ascending: false });
 
-  const fetchGalleryImages = async () => {
-    setLoadingGallery(true);
-    try {
-      const { data, error } = await supabase
-        .from('gallery_images')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      
-      if (data && data.length > 0) {
-        // Preload prima imagine
-        const img = new Image();
-        img.src = data[0].image_url;
-        img.onload = () => {
+        if (!error && data && data.length > 0) {
           setGalleryImages(data);
           setCurrentImageIndex(0);
-          setImagesLoaded(true);
-          setLoadingGallery(false);
-        };
-        img.onerror = () => {
-          // Dacă prima imagine nu se încarcă, folosește default
-          setGalleryImages([{
-            id: 1,
-            image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
-            exam_date: "Adaugă imagini în admin"
-          }]);
-          setCurrentImageIndex(0);
-          setImagesLoaded(true);
-          setLoadingGallery(false);
-        };
-      } else {
-        // Dacă nu sunt imagini în baza de date, folosește imagini default
-        setGalleryImages([
-          {
-            id: 1,
-            image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
-            exam_date: "Adaugă imagini în admin"
-          }
-        ]);
-        setCurrentImageIndex(0);
-        setImagesLoaded(true);
-        setLoadingGallery(false);
-      }
-    } catch (error) {
-      console.error('Error fetching gallery:', error);
-      // Folosește imagini default în caz de eroare
-      setGalleryImages([
-        {
-          id: 1,
-          image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
-          exam_date: "Eroare la încărcare - vezi admin"
         }
-      ]);
-      setCurrentImageIndex(0);
-      setImagesLoaded(true);
-      setLoadingGallery(false);
+      } catch (err) {
+        console.error('Error:', err);
+      }
+    };
+
+    loadImages();
+  }, []);
+
+  // Auto-rotate - SIMPLU
+  useEffect(() => {
+    if (galleryImages.length > 1) {
+      const timer = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+      }, 5000);
+      return () => clearInterval(timer);
     }
-  };
+  }, [galleryImages.length]);
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -171,16 +141,6 @@ const CompactDrive = () => {
     { value: "97%", label: "Pregătire instructori auto" }
   ];
 
-  // Auto-rotate gallery only when images are loaded
-  useEffect(() => {
-    if (imagesLoaded && galleryImages.length > 1) {
-      const timer = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-      }, 5000); // 5 secunde între imagini
-      return () => clearInterval(timer);
-    }
-  }, [galleryImages.length, imagesLoaded]);
-
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
   };
@@ -188,6 +148,8 @@ const CompactDrive = () => {
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
   };
+
+  const currentImage = galleryImages[currentImageIndex] || galleryImages[0];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -294,7 +256,7 @@ const CompactDrive = () => {
         </div>
       </section>
 
-      {/* Gallery Section - CONNECTED TO SUPABASE */}
+      {/* Gallery Section - SIMPLU SI FUNCTIONAL */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div 
@@ -311,82 +273,65 @@ const CompactDrive = () => {
             </h3>
           </div>
 
-          {loadingGallery ? (
-            <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-red-600"></div>
-              <p className="text-gray-600 mt-4">Se încarcă galeria...</p>
-            </div>
-          ) : (
-            <div 
-              data-section="gallery-content"
-              className={`relative group transition-all duration-1000 ${
-                visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-            >
-              <div className="overflow-hidden rounded-2xl shadow-2xl relative bg-gray-200 min-h-[500px] flex items-center justify-center">
-                {galleryImages.length > 0 && galleryImages[currentImageIndex] ? (
-                  <>
-                    <img 
-                      src={galleryImages[currentImageIndex].image_url} 
-                      alt={`Promovat ${galleryImages[currentImageIndex].exam_date}`}
-                      className="w-full h-[500px] object-cover"
-                      style={{ display: 'block' }}
-                    />
-                    
-                    {/* Data în colțul stânga sus */}
-                    {galleryImages[currentImageIndex].exam_date && (
-                      <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm z-10">
-                        <Calendar size={24} />
-                        <div>
-                          <div className="text-xs font-semibold opacity-90">Promovat pe</div>
-                          <div className="text-lg font-bold">{galleryImages[currentImageIndex].exam_date}</div>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <div className="text-gray-400 text-center p-12">
-                    <p>Se încarcă imaginea...</p>
+          <div 
+            data-section="gallery-content"
+            className={`relative group transition-all duration-1000 ${
+              visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
+            <div className="overflow-hidden rounded-2xl shadow-2xl relative">
+              <img 
+                src={currentImage.image_url} 
+                alt="Elev promovat"
+                className="w-full h-[500px] object-cover"
+              />
+              
+              {/* Data în colțul stânga sus */}
+              {currentImage.exam_date && (
+                <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm">
+                  <Calendar size={24} />
+                  <div>
+                    <div className="text-xs font-semibold opacity-90">Promovat pe</div>
+                    <div className="text-lg font-bold">{currentImage.exam_date}</div>
                   </div>
-                )}
-              </div>
-
-              {galleryImages.length > 1 && (
-                <>
-                  <button 
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-                  >
-                    <ChevronLeft size={24} className="text-gray-900" />
-                  </button>
-
-                  <button 
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-                  >
-                    <ChevronRight size={24} className="text-gray-900" />
-                  </button>
-
-                  <div className="flex justify-center mt-6 space-x-2">
-                    {galleryImages.map((img, index) => (
-                      <button
-                        key={img.id || index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`transition-all duration-300 rounded-full ${
-                          index === currentImageIndex 
-                            ? 'bg-red-600 w-8 h-3' 
-                            : 'bg-gray-300 w-3 h-3 hover:bg-gray-400'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </>
+                </div>
               )}
             </div>
-          )}
+
+            {galleryImages.length > 1 && (
+              <>
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+                >
+                  <ChevronLeft size={24} className="text-gray-900" />
+                </button>
+
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+                >
+                  <ChevronRight size={24} className="text-gray-900" />
+                </button>
+
+                <div className="flex justify-center mt-6 space-x-2">
+                  {galleryImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition ${
+                        index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
+      {/* REST OF SECTIONS - keeping them identical */}
       {/* Enrollment Steps Section */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
