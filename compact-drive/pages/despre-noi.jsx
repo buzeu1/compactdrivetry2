@@ -106,6 +106,9 @@ const DespreNoi = () => {
             <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
+            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
+              Înscriere Rapidă
+            </a>
           </div>
         )}
       </nav>
@@ -446,10 +449,3 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
-
-
-
-
-
-
-
