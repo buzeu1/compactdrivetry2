@@ -34,7 +34,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria  B",
       price: "2700",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/masina1.jpg",
       details: ["An fabricație 2017" ],
       badge: "Cutie Manuală"
     },
@@ -43,7 +43,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria B",
       price: "2900",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/masina2.jpg",
       details: ["An fabricație 2014" ],
       badge: "Cutie‎‎ Automata"
     },
@@ -52,7 +52,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria B",
       price: "2700",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/masina3.jpg",
       details: ["An fabricație 2016" ],
       badge: "Cutie Manuală"
     },
@@ -61,7 +61,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria B",
       price: "2700",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
+      image: "/masina4.jpg",
       details: ["An fabricație 2015" ],
       badge: "Cutie Manuală"
     },
@@ -70,7 +70,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria B",  
       price: "2700",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
+      image: "/masina5.jpg",
       details: ["An fabricație 2015" ],
       badge: "Cutie Manuală"
     },
@@ -79,7 +79,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria B",
       price: "2700",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
+      image: "/masina6.jpg",
       details: ["An fabricație 2014" ],
       badge: "Cutie Manuală"
     },
@@ -88,7 +88,7 @@ const Autovehicule = () => {
       title: "CURS COMPLET Categoria C",
       price: "2900",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop",
+      image: "/masina7.jpg",
       details: ["An fabricație 2013"],
       badge: "Cutie Automată"
     },
@@ -98,7 +98,7 @@ const Autovehicule = () => {
       subtitle: "Minim 250KM Conducere",
       price: "2300",
       priceVat: "(TVA inclus)",
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=300&fit=crop",
+      image: "/masina8.jpg",
       details: ["MAN TGM + Remorcă", "Capacitate 10T", "Training Complet"],
       badge: null
     }
