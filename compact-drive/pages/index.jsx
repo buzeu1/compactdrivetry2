@@ -146,14 +146,15 @@ const CompactDrive = () => {
     { value: "97%", label: "Pregătire instructori auto" }
   ];
 
+  // Auto-rotate gallery only when images are loaded
   useEffect(() => {
-    if (galleryImages.length > 0) {
+    if (galleryImages.length > 0 && !loadingGallery) {
       const timer = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-      }, 4000);
+      }, 5000); // 5 secunde între imagini
       return () => clearInterval(timer);
     }
-  }, [galleryImages]);
+  }, [galleryImages, loadingGallery]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
@@ -290,57 +291,75 @@ const CompactDrive = () => {
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-red-600"></div>
               <p className="text-gray-600 mt-4">Se încarcă galeria...</p>
             </div>
-          ) : (
+          ) : galleryImages.length > 0 ? (
             <div 
               data-section="gallery-content"
               className={`relative group transition-all duration-1000 ${
                 visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             >
-              <div className="overflow-hidden rounded-2xl shadow-2xl relative">
-                <img 
-                  src={galleryImages[currentImageIndex]?.image_url} 
-                  alt={`Promovat ${galleryImages[currentImageIndex]?.exam_date}`}
-                  className="w-full h-[500px] object-cover transition-transform duration-700"
-                />
-                
-                {/* Data în colțul stânga sus */}
-                {galleryImages[currentImageIndex]?.exam_date && (
-                  <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm">
-                    <Calendar size={24} />
-                    <div>
-                      <div className="text-xs font-semibold opacity-90">Promovat pe</div>
-                      <div className="text-lg font-bold">{galleryImages[currentImageIndex]?.exam_date}</div>
-                    </div>
-                  </div>
+              <div className="overflow-hidden rounded-2xl shadow-2xl relative bg-gray-100">
+                {galleryImages[currentImageIndex] && (
+                  <>
+                    <img 
+                      key={currentImageIndex}
+                      src={galleryImages[currentImageIndex].image_url} 
+                      alt={`Promovat ${galleryImages[currentImageIndex].exam_date}`}
+                      className="w-full h-[500px] object-cover transition-opacity duration-700"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop";
+                      }}
+                    />
+                    
+                    {/* Data în colțul stânga sus */}
+                    {galleryImages[currentImageIndex].exam_date && (
+                      <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm">
+                        <Calendar size={24} />
+                        <div>
+                          <div className="text-xs font-semibold opacity-90">Promovat pe</div>
+                          <div className="text-lg font-bold">{galleryImages[currentImageIndex].exam_date}</div>
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
 
-              <button 
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-              >
-                <ChevronLeft size={24} className="text-gray-900" />
-              </button>
+              {galleryImages.length > 1 && (
+                <>
+                  <button 
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+                  >
+                    <ChevronLeft size={24} className="text-gray-900" />
+                  </button>
 
-              <button 
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-              >
-                <ChevronRight size={24} className="text-gray-900" />
-              </button>
+                  <button 
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+                  >
+                    <ChevronRight size={24} className="text-gray-900" />
+                  </button>
 
-              <div className="flex justify-center mt-6 space-x-2">
-                {galleryImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-3 h-3 rounded-full transition ${
-                      index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
+                  <div className="flex justify-center mt-6 space-x-2">
+                    {galleryImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`transition-all duration-300 rounded-full ${
+                          index === currentImageIndex 
+                            ? 'bg-red-600 w-8 h-3' 
+                            : 'bg-gray-300 w-3 h-3 hover:bg-gray-400'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600">Nu sunt imagini în galerie. Adaugă imagini din panoul admin!</p>
             </div>
           )}
         </div>
