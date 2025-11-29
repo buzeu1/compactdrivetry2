@@ -644,7 +644,7 @@ const CompactDrive = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-red-600" />
-                <span>contact@compact-drive.ro</span>
+                <span>compactdrivee@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock size={20} className="text-red-600" />
