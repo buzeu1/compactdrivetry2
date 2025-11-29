@@ -1,10 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Phone, Mail, MapPin, Clock, CheckCircle, Menu, X, Book, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Phone, Mail, MapPin, Clock, CheckCircle, Menu, X, Book, Play, Calendar } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient';
 
 const CompactDrive = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState({});
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [loadingGallery, setLoadingGallery] = useState(true);
+
+  // Fetch images from Supabase
+  useEffect(() => {
+    fetchGalleryImages();
+  }, []);
+
+  const fetchGalleryImages = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('gallery_images')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      if (data && data.length > 0) {
+        setGalleryImages(data);
+      } else {
+        // Dacă nu sunt imagini în baza de date, folosește imagini default
+        setGalleryImages([
+          {
+            id: 1,
+            image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
+            exam_date: "Adaugă imagini în admin"
+          }
+        ]);
+      }
+    } catch (error) {
+      console.error('Error fetching gallery:', error);
+      // Folosește imagini default în caz de eroare
+      setGalleryImages([
+        {
+          id: 1,
+          image_url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
+          exam_date: "Adaugă imagini în admin"
+        }
+      ]);
+    } finally {
+      setLoadingGallery(false);
+    }
+  };
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -28,15 +72,6 @@ const CompactDrive = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  // Gallery images
-  const galleryImages = [
-    "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=600&fit=crop",
-  ];
 
   const enrollmentSteps = [
     {
@@ -112,11 +147,13 @@ const CompactDrive = () => {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
+    if (galleryImages.length > 0) {
+      const timer = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+      }, 4000);
+      return () => clearInterval(timer);
+    }
+  }, [galleryImages]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
@@ -231,7 +268,7 @@ const CompactDrive = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Gallery Section - CONNECTED TO SUPABASE */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div 
@@ -248,46 +285,64 @@ const CompactDrive = () => {
             </h3>
           </div>
 
-          <div 
-            data-section="gallery-content"
-            className={`relative group transition-all duration-1000 ${
-              visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-            <div className="overflow-hidden rounded-2xl shadow-2xl">
-              <img 
-                src={galleryImages[currentImageIndex]} 
-                alt="Elevi promovați"
-                className="w-full h-[500px] object-cover transition-transform duration-700"
-              />
+          {loadingGallery ? (
+            <div className="text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-red-600"></div>
+              <p className="text-gray-600 mt-4">Se încarcă galeria...</p>
             </div>
-
-            <button 
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+          ) : (
+            <div 
+              data-section="gallery-content"
+              className={`relative group transition-all duration-1000 ${
+                visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
             >
-              <ChevronLeft size={24} className="text-gray-900" />
-            </button>
-
-            <button 
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
-            >
-              <ChevronRight size={24} className="text-gray-900" />
-            </button>
-
-            <div className="flex justify-center mt-6 space-x-2">
-              {galleryImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition ${
-                    index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
-                  }`}
+              <div className="overflow-hidden rounded-2xl shadow-2xl relative">
+                <img 
+                  src={galleryImages[currentImageIndex]?.image_url} 
+                  alt={`Promovat ${galleryImages[currentImageIndex]?.exam_date}`}
+                  className="w-full h-[500px] object-cover transition-transform duration-700"
                 />
-              ))}
+                
+                {/* Data în colțul stânga sus */}
+                {galleryImages[currentImageIndex]?.exam_date && (
+                  <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm">
+                    <Calendar size={24} />
+                    <div>
+                      <div className="text-xs font-semibold opacity-90">Promovat pe</div>
+                      <div className="text-lg font-bold">{galleryImages[currentImageIndex]?.exam_date}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <button 
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+              >
+                <ChevronLeft size={24} className="text-gray-900" />
+              </button>
+
+              <button 
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition opacity-0 group-hover:opacity-100"
+              >
+                <ChevronRight size={24} className="text-gray-900" />
+              </button>
+
+              <div className="flex justify-center mt-6 space-x-2">
+                {galleryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full transition ${
+                      index === currentImageIndex ? 'bg-red-600 w-8' : 'bg-gray-300'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
