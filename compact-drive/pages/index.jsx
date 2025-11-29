@@ -25,6 +25,7 @@ const CompactDrive = () => {
       
       if (data && data.length > 0) {
         setGalleryImages(data);
+        setCurrentImageIndex(0); // Reset index când se încarcă imagini noi
       } else {
         // Dacă nu sunt imagini în baza de date, folosește imagini default
         setGalleryImages([
@@ -34,6 +35,7 @@ const CompactDrive = () => {
             exam_date: "Adaugă imagini în admin"
           }
         ]);
+        setCurrentImageIndex(0);
       }
     } catch (error) {
       console.error('Error fetching gallery:', error);
@@ -45,6 +47,7 @@ const CompactDrive = () => {
           exam_date: "Adaugă imagini în admin"
         }
       ]);
+      setCurrentImageIndex(0);
     } finally {
       setLoadingGallery(false);
     }
@@ -298,22 +301,24 @@ const CompactDrive = () => {
                 visibleSections['gallery-content'] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             >
-              <div className="overflow-hidden rounded-2xl shadow-2xl relative bg-gray-100">
+              <div className="overflow-hidden rounded-2xl shadow-2xl relative bg-gray-200">
                 {galleryImages[currentImageIndex] && (
                   <>
                     <img 
-                      key={currentImageIndex}
+                      key={`gallery-${currentImageIndex}-${galleryImages[currentImageIndex].id}`}
                       src={galleryImages[currentImageIndex].image_url} 
                       alt={`Promovat ${galleryImages[currentImageIndex].exam_date}`}
-                      className="w-full h-[500px] object-cover transition-opacity duration-700"
+                      className="w-full h-[500px] object-cover"
+                      loading="eager"
                       onError={(e) => {
+                        console.error('Image failed to load:', e.target.src);
                         e.target.src = "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop";
                       }}
                     />
                     
                     {/* Data în colțul stânga sus */}
                     {galleryImages[currentImageIndex].exam_date && (
-                      <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm">
+                      <div className="absolute top-6 left-6 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center space-x-3 backdrop-blur-sm z-10">
                         <Calendar size={24} />
                         <div>
                           <div className="text-xs font-semibold opacity-90">Promovat pe</div>
