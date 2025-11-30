@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -151,7 +152,13 @@ const Inscriere = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <Head>
+        <title>Înscriere - Compact Drive</title>
+        <link rel="icon" href="/logo.jpg" />
+      </Head>
+
+      <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -181,7 +188,7 @@ const Inscriere = () => {
             <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
           </div>
 
-          <a href="tel:+40770935065" className="hidden md:block bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold transition">
+          <a href="tel:+40768211211" className="hidden md:block bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold transition">
             Contactează-ne
           </a>
 
@@ -192,13 +199,13 @@ const Inscriere = () => {
 
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
-            <a href="/" className="block hover:text-red-500 transition">Acasă</a>
-            <a href="/despre-noi" className="block hover:text-red-500 transition">Despre Noi</a>
-            <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
-            <a href="/preturi" className="block hover:text-red-500 transition">Tarife</a>
-            <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
-            <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
-            <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
+            <a href="/" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Acasă</a>
+            <a href="/despre-noi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Despre Noi</a>
+            <a href="/#categorii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Categorii permise</a>
+            <a href="/preturi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Tarife</a>
+            <a href="/promotii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Promoții</a>
+            <a href="/informatii-utile" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Info utile</a>
+            <a href="/#contact" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Contact</a>
           </div>
         )}
       </nav>
@@ -556,6 +563,7 @@ const Inscriere = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 
