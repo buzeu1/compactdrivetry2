@@ -76,18 +76,21 @@ const InformatiiUtile = () => {
   const usefulLinks = [
     {
       title: "Chestionare Online",
-      content: "Testează-ți cunoștințele și exersează pentru examenul teoretic. Platformele online oferă chestionare actualizate conform legislației în vigoare, cu explicații detaliate pentru fiecare întrebare. Începe acum!",
-      icon: <FileText size={24} />
+      content: "Testează-ți cunoștințele și exersează pentru examenul teoretic. Ai acces la toate întrebările oficiale de la chestionare, toate explicațiile pas cu pas și toată materia necesară pentru a promova examenul.",
+      icon: <FileText size={24} />,
+      link: "https://dgpci.mai.gov.ro/dlexam"
     },
     {
-      title: "Codul Rutier",
-      content: "Codul rutier actualizat 2024 - toate normele și regulamentele de circulație. Consultă legislația rutieră oficială pentru a te pregăti optim pentru examen.",
-      icon: <Book size={24} />
+      title: "Codul Rutier 2025",
+      content: "Codul rutier actualizat 2025 - toate normele și regulamentele de circulație. Consultă legislația rutieră oficială pentru a te pregăti optim pentru examen.",
+      icon: <Book size={24} />,
+      link: "https://www.drpciv-romania.ro/Code/Applications/web/index.cgi?action=codulrutier"
     },
     {
-      title: "ARR - Autoritatea Rutieră Română",
-      content: "Autoritatea Rutieră Română - informații oficiale despre permise de conducere, proceduri de obținere, taxe și toate documentele necesare pentru înscrierea la școala de șoferi.",
-      icon: <Building size={24} />
+      title: "Școala Rutieră",
+      content: "Platformă completă de pregătire pentru obținerea permisului de conducere. Găsești toate întrebările din chestionare, explicații detaliate pas cu pas, toată materia necesară și resurse suplimentare pentru un examen de succes.",
+      icon: <Building size={24} />,
+      link: "https://www.scoalarutiera.ro/"
     }
   ];
 
@@ -276,7 +279,9 @@ const InformatiiUtile = () => {
                       {item.content}
                     </p>
                     <a 
-                      href="#"
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-4 inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-semibold"
                     >
                       <span>Accesează acum</span>
