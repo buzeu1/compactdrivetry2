@@ -184,7 +184,7 @@ const CompactDrive = () => {
             <a href="/" className="hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" className="hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="hover:text-red-500 transition">Tarife</a>
+            <a href="/preturi" className="hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" className="hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
@@ -204,7 +204,7 @@ const CompactDrive = () => {
             <a href="/" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Tarife</a>
+            <a href="/preturi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Contact</a>
@@ -457,7 +457,7 @@ const CompactDrive = () => {
                     ))}
                   </div>
 
-                  <a href="/autovehicule" className={`w-full ${category.color} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition block text-center`}>
+                  <a href="/preturi" className={`w-full ${category.color} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition block text-center`}>
                     Mergi la categoria {category.title}
                   </a>
                 </div>
@@ -466,11 +466,11 @@ const CompactDrive = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
-            <a href="/autovehicule" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+            <a href="/preturi" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
               <span>Vezi toate autovehiculele</span>
               <ChevronRight size={20} />
             </a>
-            <a href="/autovehicule#servicii" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+            <a href="/preturi#servicii" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition transform hover:scale-105 inline-flex items-center justify-center space-x-2">
               <span>Vezi servicii suplimentare</span>
               <ChevronRight size={20} />
             </a>
@@ -666,7 +666,7 @@ const CompactDrive = () => {
             <div className="space-y-3">
               <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
               <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
-              <a href="/autovehicule" className="block text-gray-400 hover:text-white transition">Tarife</a>
+              <a href="/preturi" className="block text-gray-400 hover:text-white transition">Tarife</a>
               <a href="/promotii" className="block text-gray-400 hover:text-white transition">Promoții</a>
               <a href="/informatii-utile" className="block text-gray-400 hover:text-white transition">Info utile</a>
               <a href="/inscriere" className="block text-gray-400 hover:text-white transition">Înscriere</a>
