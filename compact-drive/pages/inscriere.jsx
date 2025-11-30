@@ -448,7 +448,7 @@ const Inscriere = () => {
               <span className="text-red-600">COMPACT</span> DRIVE
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Promovăm respectul reciproc în trafic și conduita corectă la volan.
+             Formăm șoferi responsabili, pentru un trafic bazat pe respect și siguranță.
             </p>
           </div>
 
