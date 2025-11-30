@@ -77,7 +77,7 @@ const Promotii = () => {
             <a href="/promotii" className="block text-red-500">Promoții</a>
             <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
-            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
+            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center mt-4">
               Înscriere Rapidă
             </a>
           </div>
@@ -85,14 +85,14 @@ const Promotii = () => {
       </nav>
 
       {/* Main Content */}
-      <div className="pt-24 pb-16">
+      <div className="pt-28 pb-16">
         {/* Title Section */}
-        <div className="bg-gradient-to-br from-gray-900 to-black text-white py-16 px-6 mb-16">
+        <div className="bg-gradient-to-br from-red-600 to-red-700 text-white py-16 px-6 mb-16">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
               Promoții
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-red-100">
               Descoperă ofertele noastre speciale
             </p>
           </div>
@@ -159,7 +159,7 @@ const Promotii = () => {
                       </div>
                     )}
 
-                    
+                    <a
                       href="/inscriere"
                       className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 inline-flex items-center justify-center space-x-2"
                     >
