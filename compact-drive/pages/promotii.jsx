@@ -84,20 +84,20 @@ const Promotii = () => {
         )}
       </nav>
 
-      {/* Main Content */}
-      <div className="pt-24">
-        {/* Title Section */}
-        <div className="bg-gradient-to-br from-red-600 to-red-700 text-white py-16 px-6 mb-16">
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Promoții
-            </h1>
-            <p className="text-xl text-red-100">
-              Descoperă ofertele noastre speciale
-            </p>
-          </div>
+      {/* Hero Section - Direct after nav */}
+      <section className="relative bg-gradient-to-br from-gray-900 to-black text-white pt-32 pb-16 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Promoții Speciale
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Descoperă ofertele noastre speciale și profită de reduceri exclusive
+          </p>
         </div>
+      </section>
 
+      {/* Main Content */}
+      <div className="py-16">
         {/* Promotions Display */}
         <div className="max-w-7xl mx-auto px-6 mb-16">
           {loading ? (
@@ -174,7 +174,7 @@ const Promotii = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="max-w-7xl mx-auto px-6 pb-16">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Explorează ofertele noastre
