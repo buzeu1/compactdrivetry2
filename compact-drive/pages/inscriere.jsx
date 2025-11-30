@@ -145,7 +145,7 @@ const Inscriere = () => {
       icon: <Mail size={32} />,
       title: "Email",
       content: [
-        "contact@compact-drive.ro"
+        "compactdrivee@gmail.com"
       ]
     }
   ];
@@ -468,7 +468,7 @@ const Inscriere = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-red-600" />
-                <span>contact@compact-drive.ro</span>
+                <span>compactdrivee@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock size={20} className="text-red-600" />
@@ -489,14 +489,27 @@ const Inscriere = () => {
               <a href="/#contact" className="block text-gray-400 hover:text-white transition">Contact</a>
             </div>
           </div>
-
-          <div>
-            <h4 className="text-xl font-bold mb-6">Program</h4>
-            <div className="space-y-3 text-gray-400">
-              <p>Luni - Vineri: 08:30 - 18:30</p>
-              <p>Sâmbătă: 09:00 - 14:00</p>
-              <p>Duminică: Închis</p>
+         <div>
+            <h4 className="text-xl font-bold mb-6">Localizare</h4>
+            <div className="rounded-lg overflow-hidden h-48">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.8962558364446!2d26.922446315577983!3d46.92042997914603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b4f5a1a1a1a1a1%3A0x1a1a1a1a1a1a1a1a!2sPietonal%20%C8%98tefan%20cel%20Mare%2C%20Roman%20611038!5e0!3m2!1sen!2sro!4v1234567890123!5m2!1sen!2sro"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }}
+                allowFullScreen="" 
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
+            <a 
+              href="https://maps.app.goo.gl/YfF6PCd47k7gQGSF9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 w-full bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-semibold transition block text-center"
+            >
+              Afișați harta
+            </a>
           </div>
         </div>
 
