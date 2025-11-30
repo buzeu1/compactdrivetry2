@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock, Book, FileText, Building } from 'lucide-react';
 
 const InformatiiUtile = () => {
@@ -122,7 +123,13 @@ const InformatiiUtile = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <Head>
+        <title>Informații Utile - Compact Drive</title>
+        <link rel="icon" href="/logo.jpg" />
+      </Head>
+
+      <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -147,7 +154,7 @@ const InformatiiUtile = () => {
             <a href="/" className="hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" className="hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="hover:text-red-500 transition">Tarife</a>
+            <a href="/preturi" className="hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" className="hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="text-red-500">Info utile</a>
             <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
@@ -164,14 +171,14 @@ const InformatiiUtile = () => {
 
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
-            <a href="/" className="block hover:text-red-500 transition">Acasă</a>
-            <a href="/despre-noi" className="block hover:text-red-500 transition">Despre Noi</a>
-            <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="block hover:text-red-500 transition">Tarife</a>
-            <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
-            <a href="/informatii-utile" className="block text-red-500">Info utile</a>
-            <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
-            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
+            <a href="/" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Acasă</a>
+            <a href="/despre-noi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Despre Noi</a>
+            <a href="/#categorii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Categorii permise</a>
+            <a href="/preturi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Tarife</a>
+            <a href="/promotii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Promoții</a>
+            <a href="/informatii-utile" onClick={() => setIsMenuOpen(false)} className="block text-red-500">Info utile</a>
+            <a href="/#contact" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Contact</a>
+            <a href="/inscriere" onClick={() => setIsMenuOpen(false)} className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
               Înscriere Rapidă
             </a>
           </div>
@@ -452,7 +459,7 @@ const InformatiiUtile = () => {
             <div className="space-y-3">
               <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
               <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
-              <a href="/autovehicule" className="block text-gray-400 hover:text-white transition">Tarife</a>
+              <a href="/preturi" className="block text-gray-400 hover:text-white transition">Tarife</a>
               <a href="/promotii" className="block text-gray-400 hover:text-white transition">Promoții</a>
               <a href="/informatii-utile" className="block text-red-500">Info utile</a>
               <a href="/inscriere" className="block text-gray-400 hover:text-white transition">Înscriere</a>
@@ -529,6 +536,7 @@ const InformatiiUtile = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 
