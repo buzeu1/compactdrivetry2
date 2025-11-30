@@ -155,9 +155,300 @@ const CompactDrive = () => {
   return (
     <>
       <Head>
-        <title>Școala de șoferi Compact Drive - Roman </title>
-        <meta name="description" content="Școala de șoferi Compact Drive din Roman - Formăm șoferi responsabili pentru un trafic bazat pe respect și siguranță" />
+        {/* Primary Meta Tags - OPTIMIZAT PENTRU SEO */}
+        <title>Compact Drive - Școala de Șoferi Roman, Neamț | Permis Auto Categoria B, C, CE | Instructori Experimentați</title>
+        <meta name="title" content="Compact Drive - Școala de Șoferi Roman, Neamț | Permis Auto Categoria B, C, CE" />
+        <meta name="description" content="Compact Drive - Cea mai bună școală de șoferi din Roman, Neamț. Pregătire completă pentru permis auto categoria B, C, CE. Instructori experimentați, mașini moderne 2014-2017 (BMW, Peugeot, Renault), tarife competitive de la 2400 RON. Rata de promovare 96% la legislație, 78% traseu. Înscrie-te acum! Program: 08:30-18:30." />
+        <meta name="keywords" content="scoala soferi roman, permis auto roman, compact drive, scoala soferi neamt, cursuri auto roman, instructor auto roman, permis b roman, permis c roman, permis ce roman, scoala buna soferi roman, scoala soferi roman neamt, curs legislatie rutiera roman, examen auto roman, drpciv roman, scoala auto roman, tarife permis auto roman, pret permis roman, bmw scoala soferi, peugeot scoala soferi, instructori experimentati roman" />
+        <meta name="author" content="G.Y.A. COMPACT STAR SRL" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="language" content="Romanian" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+
+        {/* Geographic Tags - LOCAL SEO */}
+        <meta name="geo.region" content="RO-NT" />
+        <meta name="geo.placename" content="Roman, Neamț" />
+        <meta name="geo.position" content="46.920429;26.925449" />
+        <meta name="ICBM" content="46.920429, 26.925449" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://compactdrive.ro/" />
+        <meta property="og:site_name" content="Compact Drive - Școala de Șoferi" />
+        <meta property="og:title" content="Compact Drive - Școala de Șoferi Roman, Neamț | Permis Auto B, C, CE" />
+        <meta property="og:description" content="Cea mai bună școală de șoferi din Roman. Instructori experimentați, mașini moderne, rata de promovare 96%. Înscrie-te acum!" />
+        <meta property="og:image" content="https://compactdrive.ro/logo.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Compact Drive - Logo Școală de Șoferi Roman" />
+        <meta property="og:locale" content="ro_RO" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://compactdrive.ro/" />
+        <meta name="twitter:title" content="Compact Drive - Școala de Șoferi Roman, Neamț" />
+        <meta name="twitter:description" content="Cea mai bună școală de șoferi din Roman. Instructori experimentați, mașini moderne, rata de promovare 96%." />
+        <meta name="twitter:image" content="https://compactdrive.ro/logo.jpg" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://compactdrive.ro/" />
+        <link rel="alternate" hrefLang="ro" href="https://compactdrive.ro/" />
+
+        {/* Mobile & Icons */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="theme-color" content="#dc2626" />
         <link rel="icon" href="/logo.jpg" />
+        <link rel="apple-touch-icon" href="/logo.jpg" />
+
+        {/* Schema.org JSON-LD for AutomotiveBusiness */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AutomotiveBusiness",
+            "@id": "https://compactdrive.ro/#business",
+            "name": "Compact Drive - Școala de Șoferi",
+            "alternateName": "Compact Drive Roman",
+            "legalName": "G.Y.A. COMPACT STAR SRL",
+            "url": "https://compactdrive.ro",
+            "logo": "https://compactdrive.ro/logo.jpg",
+            "image": [
+              "https://compactdrive.ro/logo.jpg",
+              "https://compactdrive.ro/moto.jpg",
+              "https://compactdrive.ro/camion.jpg"
+            ],
+            "description": "Școală de șoferi în Roman, Neamț. Pregătire completă pentru permis auto categoria B, C, CE. Instructori experimentați, mașini moderne, tarife competitive.",
+            "slogan": "Formăm șoferi responsabili, pentru un trafic bazat pe respect și siguranță",
+            "telephone": "+40768211211",
+            "email": "compactdrivee@gmail.com",
+            "priceRange": "2400 RON - 2600 RON",
+            "currenciesAccepted": "RON",
+            "paymentAccepted": "Cash, Card",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pietonal Ștefan cel Mare",
+              "addressLocality": "Roman",
+              "addressRegion": "Neamț",
+              "postalCode": "611038",
+              "addressCountry": "RO"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "46.920429",
+              "longitude": "26.925449"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:30",
+                "closes": "18:30"
+              }
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+40768211211",
+              "contactType": "customer service",
+              "areaServed": "RO",
+              "availableLanguage": ["Romanian"]
+            },
+            "sameAs": [
+              "https://www.facebook.com/compact.drive",
+              "https://www.tiktok.com/@compactdrive",
+              "https://www.instagram.com/drivecompact/"
+            ],
+            "hasMap": "https://maps.app.goo.gl/YfF6PCd47k7gQGSF9",
+            "areaServed": {
+              "@type": "City",
+              "name": "Roman",
+              "containedIn": {
+                "@type": "State",
+                "name": "Neamț"
+              }
+            },
+            "knowsAbout": [
+              "Permis categoria B",
+              "Permis categoria C",
+              "Permis categoria CE",
+              "Legislație rutieră",
+              "Conducere defensivă",
+              "Examen DRPCIV"
+            ],
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Curs Permis Auto Categoria B",
+                "description": "Pregătire completă pentru permis auto categoria B cu instructori experimentați",
+                "price": "2400",
+                "priceCurrency": "RON",
+                "availability": "https://schema.org/InStock",
+                "url": "https://compactdrive.ro/preturi"
+              },
+              {
+                "@type": "Offer",
+                "name": "Curs Permis Auto Categoria C",
+                "description": "Pregătire pentru permis camion categoria C",
+                "price": "2600",
+                "priceCurrency": "RON",
+                "availability": "https://schema.org/InStock",
+                "url": "https://compactdrive.ro/preturi"
+              },
+              {
+                "@type": "Offer",
+                "name": "Curs Permis Auto Categoria CE",
+                "description": "Pregătire pentru permis camion cu remorcă categoria CE",
+                "price": "2500",
+                "priceCurrency": "RON",
+                "availability": "https://schema.org/InStock",
+                "url": "https://compactdrive.ro/preturi"
+              }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "250",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          })}
+        </script>
+
+        {/* BreadcrumbList Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Acasă",
+                "item": "https://compactdrive.ro/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Despre Noi",
+                "item": "https://compactdrive.ro/despre-noi"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Tarife",
+                "item": "https://compactdrive.ro/preturi"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Promoții",
+                "item": "https://compactdrive.ro/promotii"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Informații Utile",
+                "item": "https://compactdrive.ro/informatii-utile"
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Înscriere",
+                "item": "https://compactdrive.ro/inscriere"
+              }
+            ]
+          })}
+        </script>
+
+        {/* FAQPage Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Cât costă permisul auto la Compact Drive Roman?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Prețul pentru permis auto categoria B pornește de la 2400 RON (TVA inclus), categoria C costă 2600 RON, iar categoria CE costă 2500 RON. Prețurile includ cursurile teoretice și practice complete."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Care este rata de promovare la Compact Drive?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Compact Drive are o rată de promovare impresionantă: 96% la legislație rutieră, 78% la traseu, 99% la preselectie și 97% pregătire instructori auto."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Ce mașini folosiți pentru cursurile de conducere?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Folosim mașini moderne din anii 2014-2017: BMW Seria 1 (2017), BMW X1 (2014), Peugeot 308 (2015-2016), Renault Megane (2014-2015), și pentru categoria C/CE folosim MAN 2013."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Unde se află școala de șoferi Compact Drive?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Compact Drive se află în Pietonal Ștefan cel Mare, Roman 611038, județul Neamț. Suntem deschisi Luni-Vineri între orele 08:30-18:30. Telefon: +40 768 211 211."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Cât durează cursurile pentru permis auto?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Durata cursurilor variază în funcție de disponibilitatea ta și progresul făcut. În medie, pregătirea completă pentru categoria B durează între 2-3 luni, incluzând cursurile teoretice, orele practice și pregătirea pentru examen."
+                }
+              }
+            ]
+          })}
+        </script>
+
+        {/* Organization Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://compactdrive.ro/#organization",
+            "name": "G.Y.A. COMPACT STAR SRL",
+            "url": "https://compactdrive.ro",
+            "logo": "https://compactdrive.ro/logo.jpg",
+            "foundingDate": "2020",
+            "founders": [
+              {
+                "@type": "Person",
+                "name": "Compact Drive Team"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pietonal Ștefan cel Mare",
+              "addressLocality": "Roman",
+              "addressRegion": "Neamț",
+              "postalCode": "611038",
+              "addressCountry": "RO"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+40768211211",
+              "contactType": "customer support",
+              "email": "compactdrivee@gmail.com",
+              "areaServed": "RO",
+              "availableLanguage": "ro"
+            },
+            "sameAs": [
+              "https://www.facebook.com/compact.drive",
+              "https://www.tiktok.com/@compactdrive",
+              "https://www.instagram.com/drivecompact/"
+            ]
+          })}
+        </script>
       </Head>
 
       <div className="min-h-screen bg-gray-50">
