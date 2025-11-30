@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { ChevronRight, Menu, X, Phone, Mail, MapPin, Clock, CheckCircle, Award, Users, Target, Heart } from 'lucide-react';
 
 const DespreNoi = () => {
@@ -58,7 +59,13 @@ const DespreNoi = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <Head>
+        <title>Despre Noi - Compact Drive</title>
+        <link rel="icon" href="/logo.jpg" />
+      </Head>
+
+      <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -99,14 +106,14 @@ const DespreNoi = () => {
 
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
-            <a href="/" className="block hover:text-red-500 transition">Acasă</a>
-            <a href="/despre-noi" className="block text-red-500">Despre Noi</a>
-            <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
-            <a href="/preturi" className="block hover:text-red-500 transition">Tarife</a>
-            <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
-            <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
-            <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
-            <a href="/inscriere" className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
+            <a href="/" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Acasă</a>
+            <a href="/despre-noi" onClick={() => setIsMenuOpen(false)} className="block text-red-500">Despre Noi</a>
+            <a href="/#categorii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Categorii permise</a>
+            <a href="/preturi" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Tarife</a>
+            <a href="/promotii" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Promoții</a>
+            <a href="/informatii-utile" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Info utile</a>
+            <a href="/#contact" onClick={() => setIsMenuOpen(false)} className="block hover:text-red-500 transition">Contact</a>
+            <a href="/inscriere" onClick={() => setIsMenuOpen(false)} className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold w-full block text-center">
               Înscriere Rapidă
             </a>
           </div>
@@ -445,9 +452,8 @@ const DespreNoi = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 
 export default DespreNoi;
-
-
