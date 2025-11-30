@@ -261,7 +261,7 @@ const Promotii = () => {
             <div className="space-y-3">
               <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
               <a href="/despre-noi" className="block text-gray-400 hover:text-white transition">Despre Noi</a>
-              <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
+              <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii</a>
               <a href="/autovehicule" className="block text-gray-400 hover:text-white transition">Tarife</a>
               <a href="/promotii" className="block text-red-500">Promoții</a>
               <a href="/informatii-utile" className="block text-gray-400 hover:text-white transition">Info utile</a>
