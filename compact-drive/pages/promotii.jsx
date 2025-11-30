@@ -85,7 +85,7 @@ const Promotii = () => {
       </nav>
 
       {/* Main Content */}
-      <div className="pt-28 pb-16">
+      <div className="pt-20 pb-16">
         {/* Title Section */}
         <div className="bg-gradient-to-br from-red-600 to-red-700 text-white py-16 px-6 mb-16">
           <div className="max-w-7xl mx-auto text-center">
