@@ -1,0 +1,51 @@
+User-agent: *
+Allow: /
+
+# Blochează folderele admin (ca să nu apară în Google)
+Disallow: /admin-dashboard
+Disallow: /admin-login
+Disallow: /admin-gallery
+Disallow: /admin-promotii
+
+Sitemap: https://compactdrive.ro/sitemap.xml
+```
+
+### **Ce face robots.txt?**
+- 🤖 Spune roboților Google (și altor motoare de căutare) ce pot și ce nu pot vedea
+- `Allow: /` = Permite indexarea tuturor paginilor
+- `Disallow: /admin-*` = **NU indexa** paginile de admin (ca să nu apară în Google)
+- `Sitemap:` = Unde e sitemap-ul tău
+
+---
+
+# Cum arată structura după ce creezi fișierele:
+```
+public/
+├── sitemap.xml          ← NOU!
+├── robots.txt           ← NOU!
+├── googlec1ab7a878bd75234.html
+├── favicon.ico
+├── logo.jpg
+├── moto.jpg
+└── ...
+```
+
+---
+
+# După ce creezi fișierele:
+
+## 1. **Salvează ambele fișiere** (Ctrl+S)
+
+## 2. **Commit + Push pe GitHub:**
+
+În VS Code:
+- Click pe iconița **Source Control** (din stânga, a 3-a de sus)
+- SAU apasă `Ctrl+Shift+G`
+
+Vei vedea fișierele noi:
+- `public/sitemap.xml`
+- `public/robots.txt`
+
+**Scrie un mesaj:**
+```
+Add sitemap.xml and robots.txt for SEO
