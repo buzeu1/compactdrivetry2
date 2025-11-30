@@ -30,7 +30,6 @@ const Promotii = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-4">
@@ -84,9 +83,7 @@ const Promotii = () => {
         )}
       </nav>
 
-      {/* Main Content */}
       <div className="pt-20 pb-16">
-        {/* Title Section */}
         <div className="bg-gradient-to-br from-red-600 to-red-700 text-white py-16 px-6 mb-16">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
@@ -98,7 +95,6 @@ const Promotii = () => {
           </div>
         </div>
 
-        {/* Promotions Display */}
         <div className="max-w-7xl mx-auto px-6 mb-16">
           {loading ? (
             <div className="min-h-[400px] bg-white rounded-2xl shadow-xl p-8 md:p-12 flex items-center justify-center">
@@ -173,7 +169,6 @@ const Promotii = () => {
           )}
         </div>
 
-        {/* CTA Buttons */}
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -202,7 +197,6 @@ const Promotii = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="bg-black text-white py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
