@@ -161,7 +161,7 @@ const Promotii = () => {
 
                     
                       href="/inscriere"
-                      className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 inline-flex items-center justify-center space-x-2"
+                      className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 flex items-center justify-center space-x-2"
                     >
                       <span>Profită Acum!</span>
                       <ChevronRight size={20} />
