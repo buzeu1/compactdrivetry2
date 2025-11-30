@@ -82,7 +82,7 @@ const DespreNoi = () => {
             <a href="/" className="hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="text-red-500">Despre Noi</a>
             <a href="/#categorii" className="hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="hover:text-red-500 transition">Tarife</a>
+            <a href="/preturi" className="hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" className="hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
@@ -102,7 +102,7 @@ const DespreNoi = () => {
             <a href="/" className="block hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="block text-red-500">Despre Noi</a>
             <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="block hover:text-red-500 transition">Tarife</a>
+            <a href="/preturi" className="block hover:text-red-500 transition">Tarife</a>
             <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
@@ -386,7 +386,7 @@ const DespreNoi = () => {
               <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
               <a href="/despre-noi" className="block text-red-500">Despre Noi</a>
               <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
-              <a href="/autovehicule" className="block text-gray-400 hover:text-white transition">Tarife</a>
+              <a href="/preturi" className="block text-gray-400 hover:text-white transition">Tarife</a>
               <a href="/promotii" className="block text-gray-400 hover:text-white transition">Promoții</a>
               <a href="/informatii-utile" className="block text-gray-400 hover:text-white transition">Info utile</a>
               <a href="/#contact" className="block text-gray-400 hover:text-white transition">Contact</a>
@@ -449,4 +449,5 @@ const DespreNoi = () => {
 };
 
 export default DespreNoi;
+
 
