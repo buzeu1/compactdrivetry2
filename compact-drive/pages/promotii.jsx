@@ -34,10 +34,10 @@ const Promotii = () => {
       <nav className="bg-black text-white py-4 px-6 fixed w-full top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-4">
-             <img 
-            src="/logo.jpg" 
-            alt="Compact Drive" 
-            className="w-16 h-16 rounded-full object-cover"
+            <img 
+              src="/logo.jpg" 
+              alt="Compact Drive" 
+              className="w-16 h-16 rounded-full object-cover"
             />
             
             <div className="flex items-center space-x-2">
