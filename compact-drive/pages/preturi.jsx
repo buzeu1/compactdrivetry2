@@ -212,7 +212,7 @@ const Autovehicule = () => {
             <a href="/" className="hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" className="hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="text-red-500">Tarife</a>
+            <a href="/preturi" className="text-red-500">Tarife</a>
             <a href="/promotii" className="hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="hover:text-red-500 transition">Contact</a>
@@ -232,7 +232,7 @@ const Autovehicule = () => {
             <a href="/" className="block hover:text-red-500 transition">Acasă</a>
             <a href="/despre-noi" className="block hover:text-red-500 transition">Despre Noi</a>
             <a href="/#categorii" className="block hover:text-red-500 transition">Categorii permise</a>
-            <a href="/autovehicule" className="block text-red-500">Tarife</a>
+            <a href="/preturi" className="block text-red-500">Tarife</a>
             <a href="/promotii" className="block hover:text-red-500 transition">Promoții</a>
             <a href="/informatii-utile" className="block hover:text-red-500 transition">Info utile</a>
             <a href="/#contact" className="block hover:text-red-500 transition">Contact</a>
@@ -532,7 +532,7 @@ const Autovehicule = () => {
             <div className="space-y-3">
               <a href="/" className="block text-gray-400 hover:text-white transition">Acasă</a>
               <a href="/#categorii" className="block text-gray-400 hover:text-white transition">Categorii permise</a>
-              <a href="/autovehicule" className="block text-red-500">Tarife</a>
+              <a href="/preturi" className="block text-red-500">Tarife</a>
               <a href="/promotii" className="block text-gray-400 hover:text-white transition">Promoții</a>
               <a href="/informatii-utile" className="block text-gray-400 hover:text-white transition">Info utile</a>
               <a href="/inscriere" className="block text-gray-400 hover:text-white transition">Înscriere</a>
