@@ -114,7 +114,7 @@ const CompactDrive = () => {
       title: "CAMION",
       subtitle: "pentru permis de conducere categoria",
       code: "C",
-      price: "2600",
+      price: "3000",
       vat: "(TVA inclus)",
       vehicles: [
         "MAN 2013"
@@ -125,7 +125,7 @@ const CompactDrive = () => {
       title: "CAMION + REMORCĂ",
       subtitle: "pentru permis de conducere categoria",
       code: "CE, C+CE",
-      price: "2500",
+      price: "1500",
       vat: "(TVA inclus)",
       vehicles: [
         "MAN 2013",
