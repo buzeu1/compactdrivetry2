@@ -87,7 +87,7 @@ const Preturi = () => {
     {
       category: "Camion MAN",
       title: "CURS COMPLET Categoria C",
-      price: "2900",
+      price: "3000",
       priceVat: "(TVA inclus)",
       image: "/masina7.jpg",
       details: ["An fabricație 2013"],
@@ -97,7 +97,7 @@ const Preturi = () => {
       category: "CAMION CE",
       title: "CURS COMPLET Categoria CE",
       subtitle: "Minim 250KM Conducere",
-      price: "2300",
+      price: "1500",
       priceVat: "(TVA inclus)",
       image: "/masina8.jpg",
       details: ["MAN TGM + Remorcă", "Capacitate 10T", "Training Complet"],
