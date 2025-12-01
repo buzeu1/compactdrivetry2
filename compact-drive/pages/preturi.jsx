@@ -96,11 +96,10 @@ const Preturi = () => {
     {
       category: "CAMION CE",
       title: "CURS COMPLET Categoria CE",
-      subtitle: "Minim 250KM Conducere",
       price: "1500",
       priceVat: "(TVA inclus)",
       image: "/masina8.jpg",
-      details: ["MAN TGM + Remorcă", "Capacitate 10T", "Training Complet"],
+      details: ["MAN + Remorcă", "Capacitate 10T", "Training Complet"],
       badge: null
     }
   ];
